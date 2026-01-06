@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AVOCARTEL – Project</title>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.5;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            
+            margin: 0 auto;
+            padding-inline: 1.5rem;
+        }
+
+        .project {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER */
+        .project-header {
+            padding-block: 2.5rem 2rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .project-header-main {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .project-title {
+            margin: 0;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .project-tagline {
+            margin: 0;
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+
+        .project-divider {
+            border: none;
+            border-top: 1px solid #444;
+            margin: 1.75rem 0 1.5rem;
+        }
+
+        .meta-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem 2rem;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .meta-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .meta-value {
+            font-size: 1rem;
+        }
+
+        .meta-deliverables {
+            margin: 0.75rem 0 0;
+            font-size: 1rem;
+            max-width: 40rem;
+        }
+
+        .project-intro {
+            margin-top: 2rem;
+            font-size: 1.3rem;
+            max-width: 60rem;
+        }
+
+        .project-main {
+            padding-block: 2rem 3rem;
+        }
+
+        /* FULL WIDTH SECTIONS (IMMAGINI) */
+        .project-section--full {
+            padding: 0;
+            margin: 0;
+        }
+
+        .project-section--full + .project-section--full {
+            margin-top: 0; /* nessun gap verticale extra, le immagini stanno attaccate come nel layout originale */
+        }
+
+        /* Cornice nera esterna per tutte le immagini/video full-width, coerente con three-col-grid */
+        .project-section--full > .fw-wrapper {
+            background-color: #000;
+            padding: 4px; /* stessa misura usata in three-col-grid */
+        }
+
+
+        .fw-wrapper {
+            width: 100vw;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .video-frame {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        }
+
+        .video-frame video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+
+        .three-col-grid {
+            display: grid;
+            gap: 4px; /* spazio nero tra le immagini */
+            background-color: #000; /* colore della griglia */
+            grid-template-columns: 1fr; /* mobile: 1 colonna */
+            padding-left: 4px;
+            padding-right: 4px;
+            height: 100%;
+        }
+
+        /* Rende i wrapper interni normali (non full-bleed) dentro la griglia a 3 colonne */
+        .three-col-grid .fw-wrapper {
+            width: 100%;
+            margin-left: 0;
+            transform: none;
+        }
+
+        .two-col-35-65 {
+            display: grid;
+            grid-template-columns: 35% 65%;
+            gap: 4px;
+            background-color: #000;
+            
+        }
+
+        .two-col-35-65 img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .two-col-65-35 {
+            display: grid;
+            grid-template-columns: 65% 35%;
+            gap: 4px;
+            background-color: #000;
+            
+        }
+
+        .two-col-65-35 img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .two-col-50-50 {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            gap: 4px;
+            background-color: #000;
+            
+        }
+
+        .two-col-50-50 img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* FOOTER */
+        footer {
+            border-top: 1px solid #333;
+            padding: 2rem 0;
+        }
+
+        .footer-text {
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        @media (min-width: 576px) {
+            .three-col-grid {
+                grid-template-columns: repeat(2, 1fr); /* tablet: 2 colonne */
+            }
+        }
+
+        /* MEDIA QUERY DESKTOP */
+        @media (min-width: 992px) {
+            .project-header-main {
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+
+            .project-title {
+                font-size: 3.5rem;
+            }
+
+            .project-tagline {
+                font-size: 1.6rem;
+            }
+
+            .meta-row {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+            .three-col-grid {
+                grid-template-columns: repeat(3, 1fr); /* desktop: 3 colonne */
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="project">
+
+    <!-- HEADER ORIGINALE RICOSTRUITO IN VERSIONE RESPONSIVE -->
+    <header class="project-header">
+        <div class="container">
+            <div class="project-header-main">
+                <h1 class="project-title">AVOCARTEL</h1>
+                <p class="project-tagline">Más compra, más vida</p>
+            </div>
+
+            <hr class="project-divider" />
+
+            <div class="meta-row">
+                <div class="meta-item">
+                    <span class="meta-label">Medium</span>
+                    <span class="meta-value">Editorial project</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Editorial project</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Year</span>
+                    <span class="meta-value">2024</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Deliverables</span>
+                    <span class="meta-value">Scraps was born from the necessity to redefine the value of waste and the gap in value</span>
+                </div>
+            </div>
+
+            
+        </div>
+    </header>
+
+    <main class="project-main">
+
+        <!-- IMMAGINI FULL WIDTH IN ORDINE, COME NEL LAYOUT ORIGINALE -->
+        <!-- 1 -->
+<section class="project-section--full">
+    <div class="fw-wrapper">
+        <img src="images/Immagine_1.jpg" alt="AVOCARTEL Immagine 1" />
+        <p class="project-intro" style="text-indent: 100px;">
+                SCRAPS è una rivista indipendente che indaga le logiche attraverso cui valore e scarto vengono
+                continuamente prodotti e ridefiniti all’interno dei sistemi economici, ambientali e sociali.
+                SCRAPS propone una prospettiva alternativa, in cui la sostenibilità nasce dall’equilibrio tra cose,
+                luoghi e persone.
+        </p>
+    </div>
+</section>
+
+<!-- 2 — VIDEO CORRETTO -->
+<section class="project-section--full">
+    <div class="fw-wrapper video-frame">
+        <video src="images/Video_1.mp4" controls playsinline></video>
+    </div>
+</section>
+
+<!-- 3 (che in realtà è Immagine_2) -->
+<section class="project-section--full">
+    <div class="fw-wrapper">
+        <img src="images/Immagine_2.jpg" alt="AVOCARTEL Immagine 2" />
+    </div>
+</section>
+
+<!-- 4 -->
+<section class="project-section--full">
+    <div class="fw-wrapper">
+        <img src="images/Immagine_3.jpg" alt="AVOCARTEL Immagine 3" />
+    </div>
+</section>
+
+<section class="project-section--full">
+    <div class="three-col-grid">
+        <div class="fw-wrapper">
+            <img src="images/Immagine_4.jpg" alt="AVOCARTEL Immagine 4" />
+        </div>
+
+        <div class="fw-wrapper">
+            <img src="images/Immagine_5.jpg" alt="AVOCARTEL Immagine 5" />
+        </div>
+
+        <div class="fw-wrapper">
+            <img src="images/Immagine_6.jpg" alt="AVOCARTEL Immagine 6" />
+        </div>
+    </div>
+</section>
+
+<!-- 8 -->
+<section class="project-section--full">
+    <div class="fw-wrapper">
+        <img src="images/Immagine_7.jpg" alt="AVOCARTEL Immagine 7" />
+    </div>
+</section>
+
+<!-- 9 and 10 replaced with two-col-35-65 layout -->
+<section class="project-section--full">
+    <div class="two-col-35-65">
+        <div class="img-left">
+            <img src="images/Immagine_8.jpg" alt="AVOCARTEL Immagine 8" />
+        </div>
+        <div class="img-right">
+            <img src="images/Immagine_9.jpg" alt="AVOCARTEL Immagine 9" />
+        </div>
+    </div>
+</section>
+
+<!-- 10 -->
+<section class="project-section--full">
+    <div class="fw-wrapper">
+        <img src="images/Immagine_10.jpg" alt="AVOCARTEL Immagine 10" />
+    </div>
+</section>
+
+<!-- 12 and 13 replaced with two-col-35-65 layout -->
+<section class="project-section--full">
+    <div class="two-col-65-35">
+        <div class="img-left">
+            <img src="images/Immagine_12.jpg" alt="AVOCARTEL Immagine 12" />
+        </div>
+        <div class="img-right">
+            <img src="images/Immagine_13.jpg" alt="AVOCARTEL Immagine 13" />
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- 15 -->
+<section class="project-section--full">
+    <div class="fw-wrapper">
+        <img src="images/Immagine_14.jpg" alt="AVOCARTEL Immagine 14" />
+    </div>
+</section>
+
+<!-- 15 and 16 replaced with two-col-35-65 layout -->
+<section class="project-section--full">
+    <div class="two-col-50-50">
+        <div class="img-left">
+            <img src="images/Immagine_15.jpg" alt="AVOCARTEL Immagine 15" />
+        </div>
+        <div class="img-right">
+            <img src="images/Immagine_16.jpg" alt="AVOCARTEL Immagine 16" />
+        </div>
+    </div>
+</section>
+
+<!-- 18 -->
+<section class="project-section--full">
+    <div class="fw-wrapper">
+        <img src="images/Immagine_17.jpg" alt="AVOCARTEL Immagine 17" />
+    </div>
+</section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="footer-text">©2025 - All Rights Reserved</p>
+    </footer>
+
+</div>
+</body>
+</html>

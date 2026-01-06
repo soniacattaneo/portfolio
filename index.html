@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio – Designer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- HEADER molto semplice -->
+  <header class="navbar">
+  <div class="nav-container">
+
+    <div class="nav-logo">
+      <a href="index.html">SONIA CATTANEO</a>
+    </div>
+
+    <nav class="nav-menu">
+      <a href="#about-section">About</a>
+      <a href="#portfolio-section">Portfolio</a>
+      <a href="#contact-section">Contatti</a>
+    </nav>
+
+  </div>
+</header>
+
+  <!-- CONTENITORE PRINCIPALE -->
+  <main>
+
+    <!-- SEZIONE PORTFOLIO -->
+    <section id="portfolio-section" class="portfolio-section">
+
+      <h2 class="portfolio-title">Portfolio</h2>
+
+      <div class="portfolio-two-cols">
+
+        <!-- ===========================
+             1. COLONNA DESTRA (HTML sopra → mobile first)
+        ============================ -->
+        <aside class="portfolio-side">
+          <div class="side-inner">
+            <h3 class="side-name">Sonia Cattaneo</h3>
+            <p class="side-role">Communication & Visual Designer</p>
+            <p class="side-role">Designer della comunicazione con focus su identità visive, layout editoriali e interfacce digitali.
+                Lavoro con un approccio essenziale, 
+                orientato alla coerenza visiva e alla cura dei dettagli, sviluppando sistemi grafici chiari e funzionali.</p>
+
+            <h4 class="side-block-title">Servizi</h4>
+            <ul class="side-list">
+              <li>Brand identity</li>
+              <li>Editorial design</li>
+              <li>UI design</li>
+              <li>Art direction</li>
+            </ul>
+
+            <h4 class="side-block-title">Contatti</h4>
+            <p>Email: <a href="mailto:hello@design.it">hello@design.it</a></p>
+            <p>Instagram: <a href="#">@username</a></p>
+            <p>LinkedIn: <a href="#">linkedin.com/in/username</a></p>
+
+            <a href="#" class="btn-cv">Scarica CV</a>
+          </div>
+        </aside>
+
+        <section id="about-section" style="margin-bottom:3rem;"></section>
+
+        <!-- ===========================
+             2. COLONNA SINISTRA: PROGETTI
+        ============================ -->
+        <div class="portfolio-main">
+
+          <a href="projects/project1.html" class="project-link"><article class="project-card">
+            <img src="https://picsum.photos/800/600" class="project-img" alt="">
+            <h3 class="project-title">Studio Lumen</h3>
+            <p class="project-type">Brand Identity</p>
+            <p class="project-desc">
+              Identità visiva minimale con palette neutra e accento pastello.
+            </p>
+          </article></a>
+
+          <a href="projects/project2/project2.html" class="project-link"><article class="project-card">
+            <img src="https://picsum.photos/800/601" class="project-img" alt="">
+            <h3 class="project-title">Concrete Stories</h3>
+            <p class="project-type">Editorial Design</p>
+            <p class="project-desc">
+              Rivista sperimentale tra fotografia, tipografia e griglie fluide.
+            </p>
+          </article></a>
+
+          <a href="projects/project3.html" class="project-link"><article class="project-card">
+            <img src="https://picsum.photos/800/602" class="project-img" alt="">
+            <h3 class="project-title">Slow Notes</h3>
+            <p class="project-type">UI / Digital</p>
+            <p class="project-desc">
+              Interfaccia minimale con micro-animazioni e palette soft.
+            </p>
+          </article></a>
+
+        </div>
+
+      </div>
+    </section>
+    <section id="contact-section" style="height:200px;"></section>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,564 @@
+/* ============================
+     FONT DI BASE E RESET GENERALE
+     - Imposta font di default
+     - Colore e sfondo globali del sito
+  ============================ */
+body {
+  /* Rimuove margini di default del browser e definisce il font globale */
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  background: #050505;
+  color: #f5f5f5;
+}
+
+/* NAVBAR mantiene font moderno */
+.navbar,
+.navbar * {
+  font-family: "Inter", sans-serif !important;
+}
+
+/* ============================
+     NAVBAR PRINCIPALE
+     - Barra fissa in alto
+     - Sfondo semi-trasparente
+     - Contiene logo e voci di menu
+  ============================ */
+.navbar {
+  /* Fissa la navbar in alto allo scroll */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: rgba(5, 5, 5, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #262626;
+  z-index: 1000;
+}
+
+/* Contenitore interno centrato per logo + menu (desktop: logo sinistra, menu destra) */
+.nav-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;       /* desktop: logo sinistra, menu destra */
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Logo tipografico "SONIA CATTANEO" */
+.nav-logo {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #f5f5f5;
+}
+
+.nav-logo a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Contenitore delle voci di navigazione orizzontale */
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  position: static;
+  margin: 0;
+  justify-content: flex-end;  /* menu a destra su desktop */
+}
+
+/* Stile link di navigazione (About, Portfolio, Contatti) */
+.nav-menu a,
+.nav-menu a:link,
+.nav-menu a:visited {
+  text-decoration: none;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #b3b3b3;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.nav-menu a:hover {
+  color: #ffffff;
+}
+
+/* ============================
+     NAVBAR SU MOBILE
+     - Stack verticale di logo e menu
+     - Gestione spazi su schermi piccoli
+  ============================ */
+@media (max-width: 760px) {
+  /* Su mobile: logo e voci di menu vanno una sotto l'altra */
+  .nav-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  /* Logo centrato su mobile: occupa tutta la larghezza e testo centrato */
+  .nav-logo {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Menu centrato sotto il logo su mobile: occupa tutta la larghezza e voci centrate */
+  .nav-menu {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Evita padding extra sul body nella versione mobile */
+  body {
+    padding-top: 0;
+  }
+}
+
+/* Immagini fluide:
+     - non superano mai la larghezza del contenitore
+     - visualizzate come block per evitare spazi indesiderati
+  */
+img { max-width: 100%; display: block; }
+
+/* ============================
+     HEADER SITO (eventuale)
+     - Piccolo testo introduttivo o label di sezione
+  ============================ */
+.site-header {
+  padding: 1rem 1.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ============================
+     SEZIONE PORTFOLIO (HOME)
+     - Contiene layout a due colonne
+     - Sinistra: progetti
+     - Destra: bio / info Sonia
+  ============================ */
+
+/* Wrapper principale della sezione portfolio, con padding orizzontale e verticale */
+.portfolio-section {
+  padding: 6rem 1.5rem 5rem;
+}
+
+@media (max-width: 760px) {
+  /* Su mobile: spazio extra sopra per non essere coperta dalla navbar fixed */
+  .portfolio-section {
+    padding-top: 120px;
+  }
+}
+
+/* Titolo principale della sezione Portfolio */
+.portfolio-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #f5f5f5;
+}
+
+/* Layout a due colonne mobile-first (colonne impilate, poi affiancate su desktop) */
+.portfolio-two-cols {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* COLONNA DESTRA (BIO / SIDE)
+     - Su mobile appare per prima
+     - Su desktop sta a destra
+  */
+/* Wrapper della colonna laterale destra */
+.portfolio-side {
+  order: 1; /* su mobile viene prima */
+}
+
+/* Box interno del profilo: background scuro, bordo sottile, contenuto bio e contatti */
+.side-inner {
+  background: #0e0e0e;
+  padding: 1.5rem;
+  border-radius: 0;
+  border: 1px solid #262626;
+}
+
+/* Nome “Sonia Cattaneo” in evidenza nella sidebar */
+.side-name {
+  margin: 0;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Ruolo / qualifica sotto al nome */
+.side-role {
+  margin-top: 0.2rem;
+  color: #a3a3a3;
+}
+
+/* Titoletti delle sezioni nella sidebar (About, Skills, Tools, ecc.) */
+.side-block-title {
+  margin-top: 1.5rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #f5f5f5;
+}
+
+/* Liste puntate per descrivere competenze, strumenti, ambiti di lavoro */
+.side-list {
+  padding-left: 1rem;
+  color: #d4d4d4;
+}
+
+/* Link nella colonna destra (contatti) — niente blu, niente sottolineatura */
+.side-inner a,
+.side-inner a:link,
+.side-inner a:visited {
+  color: #d4d4d4;
+  text-decoration: none;
+}
+
+.side-inner a:hover {
+  color: #ffffff;
+}
+
+/* Pulsante “Download CV” in stile pill (arrotondato) */
+.btn-cv {
+  display: inline-block;
+  margin-top: 1.3rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid #111;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #111;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* COLONNA SINISTRA (PROGETTI)
+     - Elenco delle card di progetto
+     - Scorre verticalmente
+  */
+/* Contenitore della lista progetti (card) */
+.portfolio-main {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ============================
+     CARD PROGETTO
+     - Immagine di copertina
+     - Titolo, tipo e descrizione
+  ============================ */
+
+/* Contenitore singolo del progetto. Posizionamento relativo per gestire overlay testo. */
+.project-card {
+  background: #0e0e0e;
+  padding: 0;
+  border-radius: 0;
+  border: 1px solid #262626;
+  position: relative;
+  overflow: hidden;
+  min-height: 260px;
+}
+
+/* Immagine di copertina del progetto:
+     - copre tutto il box
+     - leggera desaturazione per mood più soft
+  */
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* riempie il box senza deformare */
+  object-position: center; /* centra l'immagine nel box */
+  display: block;
+  margin-bottom: 0; /* no spazio sotto, così il testo va sopra l'immagine */
+  filter: grayscale(10%);
+}
+
+/* Titolo del progetto in overlay in basso a sinistra sull’immagine */
+.project-title {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 3.2rem;
+  margin: 0;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-shadow: 0px 3px 12px rgba(0, 0, 0, 0.8);
+}
+/* Tipologia del progetto (es. Brand Identity, Editorial, UI) sotto il titolo */
+.project-type {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 2.1rem;
+  margin: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #d4d4d4;
+}
+
+/* Descrizione breve del progetto (1–2 righe, max-width per non occupare troppo) */
+.project-desc {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 0.9rem;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #d4d4d4;
+  max-width: 70%;
+}
+
+@media (max-width: 760px) {
+  /* VERSIONE MOBILE DELLE CARD PROGETTO
+     - Testo spostato sotto l'immagine
+     - Nessun overlay per evitare sovrapposizioni
+  */
+  /* Altezza libera su mobile (l’mmagine non deve riempire per forza 260px) */
+  .project-card {
+    min-height: auto;
+  }
+
+  /* Su mobile: immagini con altezza automatica e spazio sotto per il testo */
+  .project-img {
+    height: auto;
+    margin-bottom: 0.75rem; /* spazio tra immagine e testo */
+  }
+
+  /* Tutti i testi diventano statici (non più assoluti), si dispongono sotto l’immagine */
+  .project-title,
+  .project-type,
+  .project-desc {
+    position: static;
+    left: auto;
+    bottom: auto;
+    text-shadow: none;
+    max-width: 100%;
+  }
+
+  .project-title {
+    margin-top: 0.5rem;
+  }
+
+  .project-type {
+    margin-top: 0.2rem;
+  }
+
+  .project-desc {
+    margin-top: 0.4rem;
+  }
+}
+
+/* ============================
+     LAYOUT DESKTOP (>= 900px)
+     - Attiva la vera struttura a due colonne
+     - Sidebar sticky a destra
+  ============================ */
+@media (min-width: 900px) {
+  /* Griglia 2 colonne: sinistra main, destra sidebar */
+  .portfolio-two-cols {
+    display: grid;
+    grid-template-columns: 70% 30%;  /* sinistra: main, destra: side */
+    gap: 2rem;
+    grid-template-areas: "main side"; /* definisco le aree */
+  }
+
+  /* Area di sinistra: contenuto principale (progetti) */
+  /* la colonna che SCORRE deve stare a SINISTRA */
+  .portfolio-main {
+    order: 0;           /* non serve più, ma lo azzeriamo */
+    grid-area: main;    /* area di sinistra */
+  }
+
+  /* Area di destra: colonna laterale bio sticky */
+  /* la colonna STICKY deve stare a DESTRA */
+  .portfolio-side {
+    order: 0;           /* anche qui, order inutile in grid */
+    grid-area: side;    /* area di destra */
+  }
+
+  .side-inner {
+    position: sticky;     /* sidebar resta visibile mentre scrolli ma NON si sovrappone */
+    top: 5rem;            /* distanza dalla navbar */
+    width: 100%;          /* occupa il 30% della griglia (colonna destra) */
+    height: auto;         /* altezza in base al contenuto */
+    overflow: visible;    /* niente scroll interno, scrolla la pagina sotto */
+    background: #0e0e0e;  /* mantiene lo stile attuale */
+    border: 1px solid #262626;
+  }
+}
+
+/* ============================
+     PAGINA PROGETTO (DETTAGLIO)
+     - Hero full screen
+     - Intro testuale
+     - Griglia immagini tipo gallery / case study
+     - Crediti finali
+  ============================ */
+
+/* Wrapper principale della pagina progetto, con offset per la navbar fixed */
+.project-page {
+  padding-top: 80px; /* spazio sotto la navbar fixed */
+}
+
+/* Sezione hero: immagine che copre tutto il viewport (100vh) */
+.project-hero {
+  width: 100%;
+  height: 100vh; /* Copre tutto lo schermo */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+/* Contenitore dell’immagine hero (gestisce il rapporto e l’area visibile) */
+.project-hero-media {
+  width: 100%;
+  height: 100%; /* Riempe il full screen */
+}
+
+/* Immagine hero:
+     - copre tutta l’area
+     - ritagliata in modo responsive
+  */
+.project-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Copre tutto lo schermo */
+  display: block;
+}
+
+/* Sezione di introduzione testuale del progetto (titolo, meta, descrizione) */
+.project-intro {
+  padding: 3rem 1.5rem 2.5rem;
+}
+
+/* Contenitore centrato per il testo introduttivo del progetto */
+.project-intro-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Titolo della pagina progetto */
+.project-heading {
+  margin: 0 0 0.5rem;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Piccole info extra: anno, tipo di progetto, ruolo, ecc. */
+.project-meta {
+  margin: 0 0 1.2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #d4d4d4;
+}
+
+/* Descrizione estesa / narrativa del progetto */
+.project-description {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #d4d4d4;
+}
+
+/* Sezione che contiene la gallery di immagini del progetto */
+.project-gallery {
+  padding: 0 0 3rem;
+}
+
+/* Gallery in stile masonry:
+     - 5 colonne
+     - nessun gap, immagini incastrate verticalmente
+  */
+.project-gallery-grid {
+  column-count: 5; /* 5 colonne desktop */
+  column-gap: 0; /* nessuno spazio */
+  width: 100%;
+}
+
+/* Ogni immagine della gallery:
+     - riempie la colonna
+     - nessun margine extra
+  */
+.project-gallery-grid img {
+  width: 100% !important;
+  display: block;
+  margin: 0; /* nessun margine tra le immagini */
+  break-inside: avoid; /* evita spazi nelle colonne masonry */
+}
+
+/* Sezione finale con crediti, collaboratori, studio, cliente, ecc. */
+.project-credits {
+  padding: 2.5rem 1.5rem 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Contenitore centrato per i crediti del progetto */
+.project-credits-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Titolo della sezione crediti */
+.project-credits-inner h2 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+/* Lista dei singoli crediti (ruolo + nome) */
+.project-credits-inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+  color: #d4d4d4;
+}
+
+/* Spaziatura tra una voce di credito e la successiva */
+.project-credits-inner li + li {
+  margin-top: 0.35rem;
+}
+
+/* Su tablet: gallery a 3 colonne */
+@media (max-width: 900px) {
+  .project-gallery-grid {
+    column-count: 3; /* tablet */
+  }
+}
+
+/* Su mobile: navbar un po' più bassa rispetto al contenuto del progetto */
+@media (max-width: 600px) {
+  .project-page {
+    padding-top: 70px;
+  }
+
+  /* Intro più compatta su mobile (meno padding) */
+  .project-intro {
+    padding: 2.5rem 1.25rem 2rem;
+  }
+
+  /* Su mobile: gallery a 2 colonne, immagini più grandi e leggibili */
+  .project-gallery-grid {
+    column-count: 2; /* mobile */
+  }
+}
