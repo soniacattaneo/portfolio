@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCRAPS — Project</title>
+
+  <!-- Fonts (match portfolio base) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#000;
+      --fg:#fff;
+      --muted:rgba(255,255,255,.45);
+      --muted-2:rgba(255,255,255,.28);
+      --max: 1900px;
+      --pad: 10px;
+      --gap: clamp(14px, 2.5vw, 24px);
+      --radius: 0px;
+      --line: rgba(255,255,255,.10);
+      --light:#d9d9d9;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.45;
+    }
+
+    /* Layout */
+    .page{width:100%; overflow-x:hidden;}
+    .container{max-width: var(--max); margin: 0 auto; padding: 0 var(--pad);}
+    .section{padding: clamp(52px, 7vw, 96px) 0; border-top: 1px solid var(--line);}
+    .section:first-of-type{border-top:none}
+
+    /* Typography (Figma desktop styles) */
+    .title{
+      color: #fff;
+      font-size: 160px;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 400;
+      line-height: 184px;
+      word-wrap: break-word;
+      margin: 0;
+    }
+
+    .subtitle{
+      color: #fff;
+      font-size: 64px;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 400;
+      line-height: 73.6px;
+      word-wrap: break-word;
+      margin: 18px 0 0;
+    }
+
+    .lead{
+      color: #fff;
+      font-size: 32px;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 400;
+      word-wrap: break-word;
+      margin: 0;
+    }
+
+    /* Responsive scaling (keeps the same look on smaller screens) */
+    @media (max-width: 1100px){
+      .title{font-size: 96px; line-height: 110px;}
+      .subtitle{font-size: 44px; line-height: 52px;}
+      .lead{font-size: 24px;}
+    }
+    @media (max-width: 600px){
+      .title{font-size: 56px; line-height: 64px;}
+      .subtitle{font-size: 28px; line-height: 34px;}
+      .lead{font-size: 18px;}
+    }
+
+    /* Meta grid */
+    .meta{
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--gap);
+      margin-top: clamp(18px, 3vw, 34px);
+    }
+    .meta__item{grid-column: span 3; min-width: 0;}
+    .meta__k{
+      color: rgba(255, 255, 255, 0.40);
+      font-size: 20px;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 400;
+      line-height: 23px;
+      word-wrap: break-word;
+      margin: 0 0 8px;
+    }
+    .meta__v{
+      color: #fff;
+      font-size: 20px;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 400;
+      line-height: 23px;
+      word-wrap: break-word;
+      margin: 0;
+    }
+
+    @media (max-width: 900px){
+      .meta__item{grid-column: span 6;}
+    }
+    @media (max-width: 540px){
+      .meta__item{grid-column: span 12;}
+    }
+
+    /* Media */
+    img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius);
+    }
+
+    .media-block{margin-top: clamp(18px, 3vw, 34px);}
+
+    .grid-2{display:grid; grid-template-columns: 1fr 1fr; gap: var(--gap);} 
+    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap);} 
+
+    @media (max-width: 900px){
+      .grid-3{grid-template-columns: 1fr;}
+    }
+    @media (max-width: 760px){
+      .grid-2{grid-template-columns: 1fr;}
+    }
+
+    /* Callouts / labels */
+    .labels{
+      display:flex;
+      align-items:flex-end;
+      justify-content: space-between;
+      gap: var(--gap);
+      margin-bottom: clamp(14px, 2vw, 20px);
+    }
+    .label{
+      color: #fff;
+      font-size: 32px;
+      font-family: Obviously, Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 540;
+      line-height: 36.8px;
+      word-wrap: break-word;
+      margin: 0;
+    }
+    .label--right{text-align:right}
+
+    /* Simple “card” for pale blocks from Figma */
+    .pale{
+      background: #d9d9d9;
+      border-radius: var(--radius);
+      height: clamp(200px, 35vw, 520px);
+      width:100%;
+    }
+
+    /* Section headings like “video / stop motion” */
+    .ghost{
+      color: rgba(0, 0, 0, 0.28);
+      font-size: 128px;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 400;
+      line-height: 147.2px;
+      word-wrap: break-word;
+      margin: 0;
+    }
+
+    .band{
+      width: 100%;
+      background: var(--light);
+      padding: 36px 0;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      margin: 0;
+    }
+
+    .band .container{padding: 0 var(--pad);}
+
+    @media (max-width: 1100px){
+      .ghost{font-size: 80px; line-height: 92px;}
+      .band{padding: 26px 0;}
+    }
+    @media (max-width: 600px){
+      .ghost{font-size: 52px; line-height: 60px;}
+      .band{padding: 18px 0;}
+    }
+
+    /* Tilted image at the end */
+    .tilt-wrap{
+      background: #d9d9d9;
+      border-radius: var(--radius);
+      padding: clamp(16px, 2.6vw, 28px);
+      overflow:hidden;
+    }
+    .tilt{
+      transform: rotate(-1deg);
+      transform-origin: top left;
+      border-radius: var(--radius);
+    }
+
+    /* Footer */
+    .footer{
+      padding: 26px 0 46px;
+      color: var(--fg);
+    }
+    .footer p{
+      color: #fff;
+      font-size: 24px;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 400;
+      word-wrap: break-word;
+      margin: 0;
+      text-align: right;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <!-- HERO / HEADER -->
+    <section class="section">
+      <div class="container">
+        <h1 class="title">SCRAPS</h1>
+        <p class="subtitle">Lo scarto di valore, il valore dello scarto.</p>
+
+        <div class="meta" aria-label="Project metadata">
+          <div class="meta__item">
+            <p class="meta__k">Medium</p>
+            <p class="meta__v">Independent editorial magazine</p>
+          </div>
+          <div class="meta__item">
+            <p class="meta__k">Role</p>
+            <p class="meta__v">Concept Developer, Editorial Designer</p>
+          </div>
+          <div class="meta__item">
+            <p class="meta__k">Year</p>
+            <p class="meta__v">2025</p>
+          </div>
+          <div class="meta__item">
+            <p class="meta__k">Deliverables</p>
+            <p class="meta__v">Issue 0 of an independent magazine series focused on economic sustainability</p>
+          </div>
+        </div>
+
+        <div class="media-block">
+          <img src="https://placehold.co/1900x1069" alt="SCRAPS — hero visual" />
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO TEXTS -->
+    <section class="section">
+      <div class="container">
+        <p class="lead">
+          SCRAPS is an independent editorial magazine created to question the concept of economic sustainability through the lens of waste.
+          The project overturns the traditional view that associates waste with loss, instead proposing it as a space for reflection, possibility,
+          and the transformation of value.
+        </p>
+
+        <div class="media-block">
+          <p class="lead">
+            The magazine investigates the relationship between value and waste within a contemporary economic system dominated by the linear logic of consumption and immediate profit.
+            SCRAPS offers an alternative interpretation of sustainability, understood as a dynamic balance between economy, society, and environment.
+            The first issue, Burn, uses fire as a narrative and visual metaphor to describe processes of destruction and regeneration.
+            Subsequent issues, such as Hide and Tear, will further explore the theme through different actions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMAGE SET 1 (3 small) -->
+    <section class="section">
+      <div class="container">
+        <div class="grid-3 media-block">
+          <img src="https://placehold.co/622x352" alt="SCRAPS — spread image 1" />
+          <img src="https://placehold.co/635x352" alt="SCRAPS — spread image 2" />
+          <img src="https://placehold.co/622x352" alt="SCRAPS — spread image 3" />
+        </div>
+
+        <div class="grid-2 media-block">
+          <img src="https://placehold.co/1098x633" alt="SCRAPS — layout detail 1" />
+          <img src="https://placehold.co/792x633" alt="SCRAPS — layout detail 2" />
+        </div>
+      </div>
+    </section>
+
+    <!-- IMAGE SET 2 (large + pair) -->
+    <section class="section">
+      <div class="container">
+        <div class="grid-2 media-block">
+          <img src="https://placehold.co/945x505" alt="SCRAPS — visual 1" />
+          <img src="https://placehold.co/945x505" alt="SCRAPS — visual 2" />
+        </div>
+
+        <div class="media-block">
+          <img src="https://placehold.co/1900x1006" alt="SCRAPS — full width visual" />
+        </div>
+      </div>
+    </section>
+
+    <!-- EDITORIAL CHOICES TEXT + VISUAL COMPOSITION -->
+    <section class="section">
+      <div class="container">
+        <p class="lead">
+          Editorial and layout choices are designed to make the magazine not only a reading tool but also an instrument for study and learning.
+          SCRAPS is conceived to guide the reader through a slow form of consultation, encouraging analysis and comparison of contents.
+        </p>
+
+        <div class="grid-2 media-block">
+          <div class="pale" aria-hidden="true"></div>
+          <img src="https://placehold.co/877x1220" alt="SCRAPS — vertical visual" />
+        </div>
+
+        <div class="media-block">
+          <img src="https://placehold.co/1370x1300" alt="SCRAPS — large composition" />
+        </div>
+
+        <div class="media-block">
+          <img src="https://placehold.co/199x1349" alt="SCRAPS — narrow strip visual" />
+        </div>
+
+        <div class="media-block">
+          <img src="https://placehold.co/1098x1315" alt="SCRAPS — poster/cover visual" />
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT / INDEX REFERENCES -->
+    <section class="section">
+      <div class="container">
+        <div class="labels">
+          <p class="label">Contenuto</p>
+          <p class="label label--right">Rif. all’indice</p>
+        </div>
+
+        <div class="labels" style="margin-top:0;">
+          <p class="label">Titolo <br/>della sezione</p>
+          <span aria-hidden="true"></span>
+        </div>
+
+        <div class="media-block">
+          <img src="https://placehold.co/1447x1009" alt="SCRAPS — table of contents / index reference" />
+        </div>
+      </div>
+    </section>
+
+    <!-- STOP MOTION BLOCK -->
+    <section class="section">
+      <div class="container">
+      </div>
+    </section>
+
+    <div class="band" aria-hidden="true">
+      <div class="container">
+        <h2 class="ghost">stop motion</h2>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="media-block">
+          <div class="pale" aria-hidden="true"></div>
+        </div>
+        <div class="media-block">
+          <img src="https://placehold.co/1900x807" alt="SCRAPS — stop motion still" />
+        </div>
+      </div>
+    </section>
+
+    <!-- PAPER CHOICE TEXT + IMAGE -->
+    <section class="section">
+      <div class="container">
+        <p class="lead">
+          One of the central design aspects is the choice of paper, differentiated according to the type of content.
+          In the section dedicated to reports and complaints, the use of tracing paper creates a double level of reading:
+          on the surface, the official narratives that companies promote or would like their employees to express; beneath,
+          on white paper, the full statements and complaints voiced by the employees themselves.
+        </p>
+
+        <div class="media-block">
+          <img src="https://placehold.co/1900x1019" alt="SCRAPS — paper choice and layering visual" />
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO / STICKERS TEXT + SIDE-BY-SIDE VISUALS -->
+    <section class="section">
+      <div class="container">
+      </div>
+    </section>
+
+    <div class="band" aria-hidden="true">
+      <div class="container">
+        <h2 class="ghost">video</h2>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <p class="lead">
+          SCRAPS extends beyond the magazine through an intertextual action that actively involves the reader.
+          On the occasion of issue 00, adhesive stickers were created to denounce the waste of resources involved in the production of various products.
+          A video accompanying the release of the magazine documents the editorial team’s action and invites a collective gesture of public denunciation.
+        </p>
+
+        <div class="grid-2 media-block" style="align-items:start;">
+          <img src="https://placehold.co/545x756" alt="SCRAPS — sticker action visual (left)" />
+          <img src="https://placehold.co/1344x756" alt="SCRAPS — sticker action visual (right)" />
+        </div>
+      </div>
+    </section>
+
+    <!-- END VISUAL (TILTED IMAGE ON GREY) -->
+    <section class="section">
+      <div class="container">
+        <div class="tilt-wrap">
+          <img class="tilt" src="https://placehold.co/2092x1172" alt="SCRAPS — final tilted visual" />
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <p>©2025 - All Rights Reserved</p>
+      </div>
+    </footer>
+
+  </main>
+</body>
+</html>
