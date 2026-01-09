@@ -83,25 +83,29 @@
 
     /* ===== HERO (ABOUT) full-screen ===== */
     .hero{
-      height: 100svh;              /* una schermata reale, senza extra */
+      min-height: 100svh;            /* robusto su mobile */
       display:flex;
       flex-direction:column;
       align-items:center;
       justify-content:center;
       scroll-snap-align: start;
       scroll-snap-stop: always;
+      position: relative;            /* contesto di stacking */
     }
     .hero .hero-about{
       width:100%;
       max-width: 1240px;
-      height: 100%;
+      min-height: 100svh;            /* riferimento reale per l’email */
       position: relative;
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
-      padding-top: clamp(44px, 7vw, 120px);
-      padding-bottom: clamp(10px, 2vh, 24px);
+
+      /* spazio per NON finire sotto al titolo, ma senza alzare l’email */
+      padding-top: clamp(84px, 10vh, 160px);
+      padding-bottom: 0;
+
       margin: 0 auto;
     }
     .hero .hero-about .about__inner{
@@ -114,14 +118,18 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      bottom: clamp(20px, 4vh, 48px);
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 12px); /* bordo basso vero */
       margin: 0;
-      z-index: 2;
+      z-index: 3;
+      white-space: nowrap;
     }
 
-    @media (max-height: 600px){
-      .hero .about__email{
-        bottom: 12px;
+    @media (max-height: 700px){
+      .hero .hero-about{
+        padding-top: clamp(64px, 10vh, 120px);
+      }
+      .hero .about__text{
+        font-size: clamp(12px, 1.1vw, 18px);
       }
     }
 
@@ -312,8 +320,11 @@
             <br>I’M INTERESTED IN DESIGN AS A TOOL FOR AWARENESS &#8232; <br>and EDUCATION.<br><br>
             I HELP PROJECTS AND IDEAS build a coherent &#8232; <br>and meaningful visual system.
           </div>
-          <a class="about__email" href="mailto:sonia.cattaneo01@gmail.com">sonia.cattaneo01@gmaiL.COM</a>
         </div>
+
+        <a class="about__email" href="mailto:sonia.cattaneo01@gmail.com">
+          sonia.cattaneo01@gmaiL.COM
+        </a>
       </section>
     </div>
   </section>
@@ -372,7 +383,7 @@
         </div>
 
         <div class="project__media">
-          <img class="media" src="https://placehold.co/1109x624" alt="UNDO preview">
+          <img class="media" src="projects/project4/images/1_Undo.jpg" alt="UNDO preview">
         </div>
 
         <div class="project__meta project__meta--right meta">
