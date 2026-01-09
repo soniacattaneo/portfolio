@@ -1,453 +1,472 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Sonia Cattaneo – Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sonia Cattaneo — Portfolio</title>
 
-    <!--
-        VIEWPORT
-        Rende il layout responsivo su mobile:
-        - width=device-width → la larghezza della pagina segue la larghezza dello schermo
-        - initial-scale=1.0 → livello di zoom iniziale
-    -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">
+  <!-- Best-effort: if “Funnel Display” isn’t available, it falls back nicely -->
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;800&display=swap" rel="stylesheet">
 
-    <!--
-        FONT DI BASE
-        Qui uso solo system font per semplicità.
-        In un secondo momento puoi collegare un Google Font o un font personalizzato.
-    -->
-    <style> 
-        /* ================================
-           RESET BASE MOLTO LEGGERO
-           (Per avere una base più pulita)
-        ==================================*/
+  <style>
+    :root{
+      --bg:#000;
+      --text:#fff;
+      --muted:rgba(255,255,255,.28);
+      --placeholder:#ccc;
 
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;      /* Include padding e border nel calcolo della larghezza */
-            margin: 0;
-            padding: 0;
-        }
+      --ff-body: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      --ff-display: "Funnel Display", Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 
-        html,
-        body {
-            height: 100%;
-        }
+      /* Spacing scale */
+      --pad: clamp(14px, 2.2vw, 28px);
+      --gap: clamp(14px, 2.5vw, 40px);
 
-        body {
-            /* Colori principali del tema - versione chiara */
-            --bg-body: #ffffff;              /* sfondo bianco */
-            --bg-panel: #f5f5f5;             /* eventuali pannelli chiari */
-            --text-main: #111214;            /* testo principale scuro */
-            --text-muted: #666a70;           /* testo secondario grigio */
-            --accent: #111214;               /* accento scuro */
-            --border-subtle: rgba(0, 0, 0, 0.08);  /* bordi leggerissimi */
+      /* Media sizes */
+      --media-radius: 0px;
+      --media-aspect: 1110 / 624; /* keeps your original proportion */
+    }
 
-            font-family: system-ui, -apple-system, BlinkMacSystemFont,
-                "SF Pro Text", "Segoe UI", sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            line-height: 1.5;
-        }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    html{ scroll-snap-type: y mandatory; }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:var(--ff-body);
+    }
 
-        a {
-            color: inherit;             /* link dello stesso colore del testo */
-            text-decoration: none;      /* niente sottolineatura di default */
-        }
-
-        a:hover {
-            text-decoration: underline; /* sottolinea al passaggio del mouse */
-        }
-
-        /* ================================
-           LAYOUT PRINCIPALE
-           Contiene tutto il contenuto centrato
-        ==================================*/
-
-        .page {
-            /* Layout a tutta larghezza per coprire l'intera pagina */
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 24px 32px 40px;
-        }
-
-        /* ================================
-           HEADER / HERO
-           Parte iniziale con nome + descrizione
-        ==================================*/
-
-        .hero {
-            margin-bottom: 40px;        /* spazio sotto l’intro */
-        }
-
-        .hero-tag {
-            font-size: 11px;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-
-        .hero-title {
-            font-size: clamp(26px, 4vw, 36px);  /* dimensione adattiva */
-            font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 12px;
-        }
-
-        .hero-subtitle {
-            font-size: 14px;
-            color: var(--text-muted);
-            max-width: 520px;          /* per evitare righe troppo lunghe */
-            margin-bottom: 18px;
-        }
-
-        .hero-extra {
-            font-size: 13px;
-            color: var(--text-muted);
-            max-width: 520px;
-        }
+    /* ===== NAVBAR (sticky, always above) ===== */
+    .nav{
+      position:fixed;
+      top: 0;
+      left:0;
+      width:100%;
+      z-index:9999;
+      background: transparent;
+      border-bottom:0;
+      height: auto;           /* do NOT cover the viewport */
+      pointer-events: none;   /* never intercept scroll/click */
+    }
+    .nav__inner{
+      height: auto;           /* only as tall as the title */
+      max-width: 1240px;
+      margin:0 auto;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding: 0 var(--pad);
+      text-align:center;
+    }
+    .nav__title{
+      font-family:var(--ff-display);
+      font-weight:800;
+      font-size: clamp(34px, 6vw, 96px);
+      line-height: 1.15;
+      letter-spacing: .02em;
+      color:var(--text);
+      text-transform:uppercase;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      margin-top: 0;
+    }
 
 
-        /* ================================
-           SEZIONE CONTATTI / INFO IN ALTO
-           Piccolo blocco, puoi usarlo per email + social
-        ==================================*/
+    /* Reserve space for the fixed navbar so the hero doesn't sit underneath */
+    body{ padding-top: 0; }
 
-        .top-info {
-            display: flex;
-            flex-wrap: wrap;            /* va a capo su mobile */
-            gap: 12px 24px;
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-bottom: 24px;
-        }
+    /* ===== HERO (ABOUT) full-screen ===== */
+    .hero{
+      min-height: 100svh;            /* robusto su mobile */
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      position: relative;            /* contesto di stacking */
+    }
+    .hero .hero-about{
+      width:100%;
+      max-width: 1240px;
+      min-height: 100svh;            /* riferimento reale per l’email */
+      position: relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
 
-        .top-info__item-label {
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-size: 10px;
-            color: var(--text-muted);
-        }
+      /* spazio per NON finire sotto al titolo, ma senza alzare l’email */
+      padding-top: clamp(84px, 10vh, 160px);
+      padding-bottom: 0;
 
-        .top-info__item-value {
-            font-size: 12px;
-        }
+      margin: 0 auto;
+    }
+    .hero .hero-about .about__inner{
+      width:100%;
+      display:grid;
+      justify-items:center;
+      gap: clamp(18px, 2vw, 28px);
+    }
+    .hero .about__email{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 12px); /* bordo basso vero */
+      margin: 0;
+      z-index: 3;
+      white-space: nowrap;
+    }
 
-        /* ================================
-           LISTA PROGETTI
-           Struttura tipo "tabella" verticale:
-           - colonna sinistra → codice / numero
-           - colonna centrale → titolo + descrizione
-           - colonna destra → anno o tag
-        ==================================*/
+    @media (max-height: 700px){
+      .hero .hero-about{
+        padding-top: clamp(64px, 10vh, 120px);
+      }
+      .hero .about__text{
+        font-size: clamp(12px, 1.1vw, 18px);
+      }
+    }
 
-        .projects {
-            border-top: 1px solid var(--border-subtle);
-        }
+    /* ===== PAGE WRAP ===== */
+    .wrap{
+      max-width: 1240px;
+      margin:0 auto;
+      padding: 0 var(--pad);
+    }
 
-        .project-row {
-            display: grid;
+    /* ABOUT / EMAIL */
+    .about{
+      margin-top: clamp(10px, 2vw, 24px);
+    }
+    .about__text{
+      font-family:var(--ff-display);
+      font-weight:400;
+      font-size: clamp(14px, 1.25vw, 20px);
+      line-height: 1.15; /* close to your 23px on 20px */
+      text-transform:uppercase;
+      max-width: 62ch;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+    .about__email{
+      font-family:var(--ff-display);
+      font-weight:400;
+      font-size: clamp(14px, 1.25vw, 20px);
+      line-height: 1.15;
+      text-transform:lowercase;
+      text-decoration: underline;
+      color:var(--text);
+      display: inline-block;
+    }
 
-            /* 
-                LAYOUT A 3 COLONNE:
-                1) colonna sinistra → numero progressivo
-                2) colonna centrale → immagine del progetto (colonna più ampia)
-                3) colonna destra → titolo e info del progetto
-            */
-            grid-template-columns: 80px minmax(0, 3fr) minmax(0, 2fr);
+    /* ===== PROJECT LIST ===== */
+    .projects{
+      /* full-bleed, no extra whitespace between projects */
+      width: 100vw;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      padding: 0;
+      display:flex;
+      flex-direction:column;
+      gap: 0;
+    }
 
-            /* Più spazio tra gli elementi e tra le righe dei progetti */
-            gap: 20px 32px;
-            padding: 32px 0;
-            border-bottom: 1px solid var(--border-subtle);
-            align-items: stretch; /* l'immagine può riempire la colonna centrale */
-        }
+    .project{
+      /* Each project is a full-screen "slide" */
+      min-height: 100svh;
+      display:grid;
+      align-items:center;
+      gap: clamp(18px, 3vw, 40px);
+      padding: clamp(110px, 20vh, 260px) var(--pad) clamp(36px, 9vh, 120px);
 
-        /* Su schermi piccoli, ci adattiamo con meno colonne */
-        @media (max-width: 600px) {
-            .project-row {
-                /* Su mobile stacchiamo le colonne in verticale:
-                   numero → immagine → titolo/descrizione */
-                grid-template-columns: 1fr;
-            }
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
 
-            .project-code {
-                /* numero sopra, piccolo e allineato a sinistra */
-                justify-self: flex-start;
-            }
+    /*
+      Desktop: left meta | media | right meta
+      Mobile: meta stacked, then media
+    */
+    @media (min-width: 900px){
+      .project{
+        grid-template-columns: minmax(120px, 1fr) minmax(0, 1110px) minmax(180px, 1fr);
+        gap: clamp(18px, 2.2vw, 30px);
+        padding: clamp(140px, 22vh, 300px) var(--pad) clamp(44px, 10vh, 140px);
+      }
+      .project__meta--left{ grid-column:1; }
+      .project__media{ grid-column:2; }
+      .project__meta--right{ grid-column:3; }
+    }
 
-            .project-meta {
-                justify-self: flex-start;
-                margin-top: 6px;
-                text-align: left;
-            }
-        }
+    .meta{
+      display:grid;
+      gap: 10px;
+      font-family:var(--ff-display);
+      font-weight:400;
+      font-size: clamp(14px, 1.25vw, 20px);
+      line-height: 1.15;
+      text-transform:uppercase;
+    }
 
-        /* codice / numero del progetto (colonna sinistra) */
-        .project-code {
-            font-size: 11px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
+    .meta__row{
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+    }
 
-        /* blocco centrale: titolo + sottotitolo */
-        .project-main {
-            /* Contenitore dell'immagine al centro */
-            display: block;
-            width: 100%;
-        }
+    /* left meta aligns like “001” on the left and name on the right */
+    .project__meta--left .meta__row{
+      justify-content:space-between;
+    }
+    .meta__num{ min-width: 3ch; }
+    .meta__name{ text-align:right; flex:1; }
 
-        .project-main img {
-            /* Immagine centrale responsive */
-            display: block;
-            width: 100%;
-            height: 260px;           /* altezza di base, puoi modificare */
-            object-fit: cover;       /* ritaglia riempiendo il box */
-            border-radius: 8px;      /* angoli leggermente arrotondati */
-            background-color: #222;  /* fallback se l'immagine non carica */
-        }
+    /* right meta: category left, year right */
+    .project__meta--right .meta__row{
+      justify-content:space-between;
+    }
+    .meta__cat{
+      text-align:left;
+      white-space:pre-line; /* allows line break like “speculative\ndesign” */
+    }
+    .meta__year{ text-align:right; min-width:4ch; }
 
-        .project-title {
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
+    /* Make sure side labels stay vertically centered like in the reference */
+    .project__meta{ align-self:center; }
 
-        .project-subtitle {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
+    /* Media */
+    .project__media{
+      width:100%;
+      max-width: 1110px;
+      justify-self:center;
+      align-self:center;
+      border-radius: var(--media-radius);
+      overflow:hidden;
+    }
+    .media{
+      width:100%;
+      aspect-ratio: var(--media-aspect);
+      display:block;
+      object-fit:cover;
+      background: var(--placeholder);
+    }
 
-        .project-meta {
-            /* Colonna destra: titolo e info del progetto */
-            font-size: 12px;
-            text-align: right;
-            color: var(--text-muted);
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
+    /* Special: 005 has an extra vertical image overlay */
+    .project--005 .project__media{
+      position:relative;
+      background: var(--placeholder);
+      aspect-ratio: var(--media-aspect);
+    }
+    .project--005 .media{
+      /* base panel already grey via bg; keep image optional */
+      opacity:0; /* hide the wide placeholder image, like your grey panel */
+    }
+    .project--005 .media--detail{
+      position:absolute;
+      top: clamp(12px, 2vw, 36px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(356px, 40%);
+      aspect-ratio: 356 / 553;
+      opacity:1;
+      background: var(--placeholder);
+    }
 
-        /* facciamo sì che l’intera riga sia cliccabile */
-        .project-link {
-            text-decoration: none;
-            color: inherit;
-            display: contents; /* trucco: mantiene il layout della grid */
-        }
+    /* Special: 006 is just a grey panel */
+    .project--006 .media{
+      background: var(--placeholder);
+    }
 
-        .project-row:hover {
-            background: linear-gradient(
-                90deg,
-                rgba(245, 255, 75, 0.08),
-                transparent
-            );
-        }
+    /* Footer */
+    footer{
+      margin-top: clamp(50px, 7vw, 120px);
+      padding: clamp(24px, 4vw, 60px) 0;
+      text-align:center;
+      font-family:var(--ff-body);
+      font-weight:400;
+      font-size: clamp(14px, 1.6vw, 24px);
+      color:var(--text);
+      border-top:1px solid rgba(255,255,255,.06);
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
 
-        /* ================================
-           FOOTER
-           Chiusura soft con call-to-action
-        ==================================*/
-
-        .footer {
-            margin-top: 32px;
-            padding-top: 18px;
-            border-top: 1px solid var(--border-subtle);
-            font-size: 12px;
-            color: var(--text-muted);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 16px;
-            justify-content: space-between;
-        }
-
-        .footer-cta {
-            max-width: 360px;
-        }
-
-        .footer-meta {
-            text-align: right;
-            white-space: nowrap;
-        }
-    </style>
+    /* Small polish: keep content visible under sticky bar */
+  </style>
 </head>
+
 <body>
-    <div class="page">
-        <!-- =========================
-             HEADER / HERO
-             Qui personalizzi nome, ruolo, descrizione
-        ========================== -->
-        <header class="hero">
-            <!-- Piccolo kicker sopra il titolo principale -->
-            <div class="hero-tag">PORTFOLIO SELECTION</div>
-
-            <!-- Titolo principale (puoi spezzare su più righe con <br>) -->
-            <h1 class="hero-title">
-                Sonia Cattaneo is a graphic designer and art director
-                focused on bold yet precise visual systems.
-            </h1>
-
-            <!-- Sottotitolo/descrizione breve -->
-            <p class="hero-subtitle">
-                She works on visual identities, editorial projects and digital
-                interfaces, helping people and brands find their own visual
-                language — loud or whisper, surprising or calm, but always confident.
-            </p>
-
-            <!-- Testo extra (facoltativo) -->
-            <p class="hero-extra">
-                Currently open for collaborations, creative direction and
-                experimental projects involving AI-assisted workflows.
-            </p>
-        </header>
-
-        <!-- =========================
-             BLOCCO INFO VELOCE (EMAIL, BASE, INSTAGRAM, ETC.)
-        ========================== -->
-        <section class="top-info">
-            <!-- Singolo blocco info -->
-            <div>
-                <div class="top-info__item-label">Email</div>
-                <div class="top-info__item-value">
-                    <a href="mailto:hello@soniacattaneo.com">
-                        hello@soniacattaneo.com
-                    </a>
-                </div>
-            </div>
-
-            <div>
-                <div class="top-info__item-label">Based in</div>
-                <div class="top-info__item-value">Milan, Italy</div>
-            </div>
-
-            <div>
-                <div class="top-info__item-label">Instagram</div>
-                <div class="top-info__item-value">
-                    <a href="https://instagram.com/username" target="_blank">
-                        @username
-                    </a>
-                </div>
-            </div>
-
-            <div>
-                <div class="top-info__item-label">Selected clients</div>
-                <div class="top-info__item-value">
-                    Independent artists, studios & cultural projects
-                </div>
-            </div>
-        </section>
-
-        <!-- =========================
-             LISTA PROGETTI
-             Ogni "project-row" è una riga cliccabile
-        ========================== -->
-        <main class="projects">
-            <!--
-                Progetto 01
-                - Cambia href con il link al case study o file PDF
-                - Cambia numero, titolo, descrizione, anno
-            -->
-            <a class="project-link" href="projects/project2/avocartel.html" target="_blank">
-                <article class="project-row">
-                    <!-- Colonna sinistra: numero progressivo -->
-                    <div class="project-code">001</div>
-
-                    <!-- Colonna centrale: immagine del progetto -->
-                    <div class="project-main">
-                        <!--
-                            Sostituisci src con il percorso reale dell'immagine.
-                            L'immagine riempirà la colonna centrale.
-                        -->
-                        <img src="projects/project1/images/Immagine_10.jpg" alt="AVOCARTEL – visual identity" />
-                    </div>
-
-                    <!-- Colonna destra: titolo + descrizione + meta -->
-                    <div class="project-meta">
-                        <h2 class="project-title">AVOCARTEL</h2>
-                        <p class="project-subtitle">
-                            Visual identity and campaign for a pop-culture fashion collection.
-                        </p>
-                        <div>Branding · 2024</div>
-                    </div>
-                </article>
-            </a>
-
-            <!-- Progetto 02 -->
-            <a class="project-link" href="" target="_blank">
-                <article class="project-row">
-                    <div class="project-code">002</div>
-
-                    <div class="project-main">
-                        <img src="#" alt="TENDEN – packaging and visual system" />
-                    </div>
-
-                    <div class="project-meta">
-                        <h2 class="project-title">IDgramma</h2>
-                        <p class="project-subtitle">
-                            Faces of technology.
-                        </p>
-                        <div>Art direction · 2023</div>
-                    </div>
-                </article>
-            </a>
-
-            <!-- Progetto 03 -->
-            <a class="project-link" href="projects/project3/project3.html" target="_blank">
-                <article class="project-row">
-                    <div class="project-code">003</div>
-
-                    <div class="project-main">
-                        <img src="projects/project3/images/1.jpg" alt="ARC TYPE – experimental editorial layout" />
-                    </div>
-
-                    <div class="project-meta">
-                        <h2 class="project-title">SCRAPS</h2>
-                        <p class="project-subtitle">
-                            Lo scarto di valore, il valore dello scarto.
-                        </p>
-                        <div>Editorial · 2023</div>
-                    </div>
-                </article>
-            </a>
-            
-            
-            <!-- Progetto 04 -->
-            <a class="project-link" href="index2.html" target="_blank">
-                <article class="project-row">
-                    <div class="project-code">004</div>
-
-                    <div class="project-main">
-                        <img src="projects/project4/images/1.png" alt="SCRAPS" />
-                    </div>
-
-                    <div class="project-meta">
-                        <h2 class="project-title">UNDO</h2>
-                        <p class="project-subtitle">
-                            A system that unites.
-                        </p>
-                        <div>Editorial · 2023</div>
-                    </div>
-                </article>
-            </a>
-            <!-- Aggiungi altri progetti copiando il blocco qui sopra -->
-        </main>
-
-        <!-- =========================
-             FOOTER / CTA
-        ========================== -->
-        <footer class="footer">
-            <div class="footer-cta">
-                Always happy to talk about work, collaborations or strange ideas.
-                For full portfolio, availability and commissions,
-                feel free to get in touch.
-            </div>
-            <div class="footer-meta">
-                Sonia Cattaneo · © 2025
-            </div>
-        </footer>
+  <!-- Sticky navbar -->
+  <header class="nav" role="banner">
+    <div class="nav__inner">
+      <div class="nav__title">SONIA CATTANEO</div>
     </div>
+  </header>
+
+  <section class="hero" aria-label="Home">
+    <div class="wrap">
+      <!-- About -->
+      <section class="about hero-about" aria-label="About">
+        <div class="about__inner">
+          <div class="about__text">
+            THAT’S ME. I’M SONIA CATTANEO, A COMMUNICATION DESIGNER WORKING BETWEEN speculative design, digital products <br> AND editorial PROJECTS.<br><br>
+            I DESIGN SYSTEMS THAT USE VISUAL LANGUAGE, STORYTELLING <br> AND INTERACTION TO MAKE COMPLEX TOPICS ACCESSIBLE. &#8232;
+            <br>I’M INTERESTED IN DESIGN AS A TOOL FOR AWARENESS &#8232; <br>and EDUCATION.<br><br>
+            I HELP PROJECTS AND IDEAS build a coherent &#8232; <br>and meaningful visual system.
+          </div>
+        </div>
+
+        <a class="about__email" href="mailto:sonia.cattaneo01@gmail.com">
+          sonia.cattaneo01@gmaiL.COM
+        </a>
+      </section>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects" aria-label="Portfolio">
+      <!-- 001 -->
+      <article class="project project--001">
+        <div class="project__meta project__meta--left meta">
+          <div class="meta__row">
+            <div class="meta__num">001</div>
+            <div class="meta__name">avocartel</div>
+          </div>
+        </div>
+
+        <div class="project__media">
+          <img class="media" src="https://placehold.co/1110x624" alt="Avocartel preview">
+        </div>
+
+        <div class="project__meta project__meta--right meta">
+          <div class="meta__row">
+            <div class="meta__cat">speculative&#10;design</div>
+            <div class="meta__year">2024</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 002 -->
+      <article class="project project--002">
+        <div class="project__meta project__meta--left meta">
+          <div class="meta__row">
+            <div class="meta__num">002</div>
+            <div class="meta__name">IDgramma</div>
+          </div>
+        </div>
+
+        <div class="project__media">
+          <img class="media" src="https://placehold.co/1110x624" alt="IDgramma preview">
+        </div>
+
+        <div class="project__meta project__meta--right meta">
+          <div class="meta__row">
+            <div class="meta__cat">speculative&#10;design</div>
+            <div class="meta__year">2025</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 003 -->
+      <article class="project project--003">
+        <div class="project__meta project__meta--left meta">
+          <div class="meta__row">
+            <div class="meta__num">003</div>
+            <div class="meta__name">UNDO</div>
+          </div>
+        </div>
+
+        <div class="project__media">
+         <a href="projects/project4/undo.html" class="project__link">
+          <img
+            class="media"
+            src="projects/project4/images/1_Undo.jpg"
+            alt="UNDO preview"
+        >
+</a>
+        </div>
+
+        <div class="project__meta project__meta--right meta">
+          <div class="meta__row">
+            <div class="meta__cat">TYPOGRAPHIC&#10;design</div>
+            <div class="meta__year">2025</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 004 -->
+      <article class="project project--004">
+        <div class="project__meta project__meta--left meta">
+          <div class="meta__row">
+            <div class="meta__num">004</div>
+            <div class="meta__name">SCRAPS</div>
+          </div>
+        </div>
+
+        <div class="project__media">
+          <img class="media" src="https://placehold.co/1110x624" alt="SCRAPS preview">
+        </div>
+
+        <div class="project__meta project__meta--right meta">
+          <div class="meta__row">
+            <div class="meta__cat">EDITORIAL&#10;design</div>
+            <div class="meta__year">2025</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 005 (grey panel + centered vertical image) -->
+      <article class="project project--005">
+        <div class="project__meta project__meta--left meta">
+          <div class="meta__row">
+            <div class="meta__num">005</div>
+            <div class="meta__name">GLUO</div>
+          </div>
+        </div>
+
+        <div class="project__media" aria-label="GLUO panel">
+          <img class="media" src="https://placehold.co/1109x624" alt="" aria-hidden="true">
+          <img class="media media--detail" src="https://placehold.co/356x553" alt="GLUO detail preview">
+        </div>
+
+        <div class="project__meta project__meta--right meta">
+          <div class="meta__row">
+            <div class="meta__cat">INTERACTION&#10;design</div>
+            <div class="meta__year">2025</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 006 (grey panel) -->
+      <article class="project project--006">
+        <div class="project__meta project__meta--left meta">
+          <div class="meta__row">
+            <div class="meta__num">006</div>
+            <div class="meta__name">???</div>
+          </div>
+        </div>
+
+        <div class="project__media">
+          <div class="media" role="img" aria-label="Project 006 placeholder"></div>
+        </div>
+
+        <div class="project__meta project__meta--right meta">
+          <div class="meta__row">
+            <div class="meta__cat">INTERACTION&#10;design</div>
+            <div class="meta__year">2025</div>
+          </div>
+        </div>
+      </article>
+  </section>
+
+  <div class="wrap">
+    <footer>©2025 - All Rights Reserved</footer>
+  </div>
 </body>
 </html>
