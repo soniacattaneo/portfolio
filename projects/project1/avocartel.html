@@ -222,8 +222,20 @@
 
     /* ---------------- MOBILE ---------------- */
     @media(max-width:991px){
+      /* Prevent SC from covering header content on mobile */
+      .hero-topmark{
+        font-size: clamp(28px, 10vw, 44px);
+        line-height: 1;
+        top: 8px;
+        left: 10px;
+      }
+
+      .hero-meta{
+        padding-top: 72px; /* creates room under SC */
+      }
+
+      .hero-meta{padding:72px 10px 10px;}
       /* .hero-topmark{position:static;padding:10px;} */
-      .hero-meta{padding:10px;}
       .meta-grid{grid-template-columns:1fr;gap:18px;}
       .grid-3,.grid-50,.grid-65-35,.grid-35-65{grid-template-columns:1fr;}
       .footer-grid{
