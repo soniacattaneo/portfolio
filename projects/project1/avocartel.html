@@ -116,8 +116,21 @@
       line-height: var(--lh23);
     }
 
-    .text-left{max-width:1266px;}
-    .text-right{max-width:1266px;margin-left:auto;}
+    .text-left{
+        max-width:1266px;
+        text-indent: 200pt;}
+    .text-right{
+        max-width:1266px;
+        margin-left:auto;
+        text-indent: 200pt;
+    
+    }
+
+    /* First-line indent only on desktop */
+    .indent-first-desktop{ text-indent: 0; }
+    @media (min-width: 992px){
+      .indent-first-desktop{ text-indent: 200pt; }
+    }
 
     /* ---------------- MEDIA ---------------- */
     .grid-3{
@@ -329,7 +342,7 @@
   <div class="text-left">
     Avocartel is a award-winning speculative design project that imagines a 
     future in which organized crime controls the global avocado market. 
-    Through this scenario, the project makes visible the hidden social cost behind an everyday product, 
+    Through this scenario, the project makes visible the hidden social cost behind <br>an everyday product, 
     translating economic data into violence, exploitation, and human lives.
   </div>
 </section>
@@ -360,10 +373,10 @@
 
 <section class="caption">
   <div class="text-right">
-    Avocartel’s visual identity draws on the language of pop crime: bright colors, references to Mexican culture, 
+    Avocartel’s visual identity draws on the language of pop crime: bright colors, references <br>to Mexican culture, 
     and an apparently positive aesthetic that contrasts with the harshness of the content. 
     The vibrant color palette, the ironic tone of voice, and the payoff “Más compra, más vida” 
-    construct a deliberately ambiguous imagery, in which visual appeal masks a deeply disturbing message.
+    construct a deliberately ambiguous imagery, <br>in which visual appeal masks a deeply disturbing message.
   </div>
 </section>
 
@@ -375,7 +388,7 @@
 <section class="caption">
   <div class="text-right">
     The Avocartel experience is designed as an ascending climax toward truth. In the first phase, 
-    the user is attracted by the brand’s ambiguity; in the second, they experience an intuitive and reassuring 
+    <br>the user is attracted by the brand’s ambiguity; in the second, they experience an intuitive and reassuring 
     act of purchase; only at the moment of weighing, through the Bilancia Libre, are they confronted with reality. 
     The final revelation breaks expectations and forces the consumer to face the true cost of the product.
   </div>
@@ -402,7 +415,7 @@
 <section class="bleed frame"><img src="./images/12_Avocartel.jpg" loading="lazy"></section>
 <section class="caption">
   <div class="text-right">
-    At the end of the experience, the scale releases a label that functions both as a receipt and as a tool of 
+    At the end of the experience, the scale releases a label that functions both as a receipt <br>and as a tool of 
     denunciation. The user is invited to spread the message in public spaces by applying the labels 
     and sharing the content. Avocartel deliberately adopts the logics of contemporary marketing, loyalty strategies, 
     merchandising, social media, and web site, to critically expose the mechanisms of consumer persuasion.
