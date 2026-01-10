@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
 
-    <!-- Single-file version: CSS is embedded below to match the provided code exactly -->
     <style>
       @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
       * {
@@ -17,17 +15,27 @@
         margin: 0px;
         height: 100%;
       }
-      /* a blue color as a generic focus style */
       button:focus-visible {
         outline: 2px solid #4a90e2 !important;
-        outline: -webkit-focus-ring-color auto 5px !important;
       }
       a {
         text-decoration: none;
       }
+      
+      body {
+        overflow-x: hidden;
+        background: #000;
+      }
+
+      .page {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
       .UNDO {
         background-color: #000000;
-        width: 1920px;          /* fixed artboard width */
+        width: 1920px;
         min-height: 18892px;
         position: relative;
       }
@@ -37,7 +45,7 @@
         top: 127px;
         left: 9px;
         width: 140px;
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff66;
         font-size: 20px;
@@ -51,7 +59,7 @@
         top: 155px;
         left: 9px;
         width: 262px;
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff;
         font-size: 20px;
@@ -65,7 +73,7 @@
         top: 127px;
         left: 485px;
         width: 140px;
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff66;
         font-size: 20px;
@@ -79,7 +87,7 @@
         top: 155px;
         left: 485px;
         width: 262px;
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff;
         font-size: 20px;
@@ -93,7 +101,7 @@
         top: 127px;
         left: 960px;
         width: 140px;
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff66;
         font-size: 20px;
@@ -107,7 +115,7 @@
         top: 155px;
         left: 960px;
         width: 262px;
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff;
         font-size: 20px;
@@ -121,7 +129,7 @@
         top: 127px;
         left: 1277px;
         width: 261px;
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff66;
         font-size: 20px;
@@ -135,7 +143,7 @@
         top: 155px;
         left: 1277px;
         width: 633px;
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff;
         font-size: 20px;
@@ -149,7 +157,6 @@
         left: 0;
         width: 1920px;
         height: 1077px;
-        aspect-ratio: 1.78;
       }
 
       .UNDO .img {
@@ -158,7 +165,6 @@
         left: 0;
         width: 754px;
         height: 377px;
-        aspect-ratio: 2;
       }
 
       .UNDO .sonia-cattaneo-2 {
@@ -167,7 +173,6 @@
         left: 768px;
         width: 1152px;
         height: 377px;
-        aspect-ratio: 3.05;
       }
 
       .UNDO .sonia-cattaneo-3 {
@@ -176,13 +181,11 @@
         left: 0;
         width: 1920px;
         height: 690px;
-        aspect-ratio: 2.78;
       }
 
       .UNDO .sonia-cattaneo-4 {
         top: 4390px;
         height: 538px;
-        aspect-ratio: 3.57;
         position: absolute;
         left: 0;
         width: 1920px;
@@ -191,7 +194,6 @@
       .UNDO .sonia-cattaneo-5 {
         top: 3843px;
         height: 534px;
-        aspect-ratio: 3.6;
         position: absolute;
         left: 0;
         width: 1920px;
@@ -203,13 +205,11 @@
         left: 0;
         width: 1920px;
         height: 1080px;
-        aspect-ratio: 1.78;
       }
 
       .UNDO .sonia-cattaneo-7 {
         left: 0;
         width: 1004px;
-        aspect-ratio: 0.93;
         position: absolute;
         top: 17311px;
         height: 1076px;
@@ -218,7 +218,6 @@
       .UNDO .sonia-cattaneo-8 {
         left: 1017px;
         width: 903px;
-        aspect-ratio: 0.84;
         position: absolute;
         top: 17311px;
         height: 1076px;
@@ -230,7 +229,6 @@
         left: 0;
         width: 1920px;
         height: 1078px;
-        aspect-ratio: 1.78;
       }
 
       .UNDO .sonia-cattaneo-9 {
@@ -239,7 +237,6 @@
         left: 0;
         width: 1920px;
         height: 1080px;
-        aspect-ratio: 1.78;
       }
 
       .UNDO .sonia-cattaneo-10 {
@@ -248,7 +245,6 @@
         left: 0;
         width: 1920px;
         height: 1080px;
-        aspect-ratio: 1.78;
       }
 
       .UNDO .sonia-cattaneo-11 {
@@ -257,7 +253,6 @@
         left: 0;
         width: 1919px;
         height: 1080px;
-        aspect-ratio: 1.78;
         object-fit: cover;
       }
 
@@ -267,7 +262,6 @@
         left: 1040px;
         width: 880px;
         height: 1078px;
-        aspect-ratio: 0.82;
       }
 
       .UNDO .sonia-cattaneo-13 {
@@ -276,7 +270,6 @@
         left: 0;
         width: 1027px;
         height: 587px;
-        aspect-ratio: 1.75;
       }
 
       .UNDO .sonia-cattaneo-14 {
@@ -285,7 +278,6 @@
         left: 0;
         width: 1028px;
         height: 481px;
-        aspect-ratio: 2.14;
       }
 
       .UNDO .UNDO-is-a-typeface {
@@ -293,7 +285,7 @@
         top: 1345px;
         left: 10px;
         width: 1266px;
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff;
         font-size: 20px;
@@ -306,7 +298,7 @@
         top: 2551px;
         left: 643px;
         width: 1273px;
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff;
         font-size: 20px;
@@ -319,7 +311,7 @@
         top: 3730px;
         left: 644px;
         width: 1266px;
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff;
         font-size: 20px;
@@ -330,10 +322,9 @@
       .UNDO .sonia-cattaneo-15 {
         position: absolute;
         top: 6302px;
-        left: calc(50.00% - 960px);
+        left: 0;
         width: 1919px;
         height: 1162px;
-        aspect-ratio: 1.65;
       }
 
       .UNDO .sonia-cattaneo-16 {
@@ -342,7 +333,6 @@
         left: 0;
         width: 1920px;
         height: 1080px;
-        aspect-ratio: 1.78;
         object-fit: cover;
       }
 
@@ -352,7 +342,6 @@
         left: 0;
         width: 1920px;
         height: 1079px;
-        aspect-ratio: 1.78;
       }
 
       .UNDO .sonia-cattaneo-18 {
@@ -361,16 +350,14 @@
         left: 0;
         width: 1920px;
         height: 1079px;
-        aspect-ratio: 1.78;
       }
 
       .UNDO .sonia-cattaneo-19 {
         position: absolute;
         top: 8569px;
-        left: calc(50.00% - 960px);
+        left: 0;
         width: 1920px;
         height: 1080px;
-        aspect-ratio: 1.78;
         object-fit: cover;
       }
 
@@ -380,7 +367,6 @@
         left: 1066px;
         width: 854px;
         height: 1077px;
-        aspect-ratio: 0.79;
       }
 
       .UNDO .sonia-cattaneo-21 {
@@ -389,7 +375,6 @@
         left: 0;
         width: 1053px;
         height: 351px;
-        aspect-ratio: 3;
       }
 
       .UNDO .sonia-cattaneo-22 {
@@ -398,7 +383,6 @@
         left: 0;
         width: 1052px;
         height: 265px;
-        aspect-ratio: 3.99;
       }
 
       .UNDO .sonia-cattaneo-23 {
@@ -407,7 +391,6 @@
         left: 0;
         width: 1053px;
         height: 435px;
-        aspect-ratio: 2.42;
       }
 
       .UNDO .each-script-was {
@@ -415,7 +398,7 @@
         top: 4941px;
         left: 643px;
         width: 1267px;
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff;
         font-size: 20px;
@@ -428,7 +411,7 @@
         top: 6197px;
         left: 644px;
         width: 1267px;
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff;
         font-size: 20px;
@@ -448,7 +431,7 @@
         position: absolute;
         top: 0;
         left: calc(50.00% - 110px);
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff;
         font-size: 20px;
@@ -461,7 +444,7 @@
         position: absolute;
         top: 0;
         left: calc(50.00% - 828px);
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff;
         font-size: 20px;
@@ -474,7 +457,7 @@
         position: absolute;
         top: 0;
         left: calc(50.00% + 655px);
-        font-family: "Funnel Display-Regular", Helvetica;
+        font-family: "Funnel Display-Regular", Helvetica, Arial, sans-serif;
         font-weight: 400;
         color: #ffffff;
         font-size: 20px;
@@ -487,77 +470,133 @@
         top: -4px;
         left: 8px;
         width: 1900px;
-        font-family: "Funnel Display-ExtraBold", Helvetica;
+        font-family: "Funnel Display-ExtraBold", Helvetica, Arial, sans-serif;
         font-weight: 800;
         color: #ffffff;
         font-size: 96px;
         letter-spacing: 0;
         line-height: 110.4px;
         white-space: nowrap;
+        z-index: 1000;
       }
 
-      /* RESPONSIVE OVERRIDES */
-      /*
-        This file is an exported 1920px artboard with absolute positioning.
-        True responsive reflow would require rebuilding the layout.
-
-        Senior fix (pixel-perfect preserved):
-        - Desktop: center the artboard and scale it down so the visible width never exceeds 1200px
-        - Mobile/tablet: scale to viewport width
-        - Prevent unwanted horizontal scroll
-      */
-
-      body {
-        overflow-x: hidden; /* no horizontal scroll */
-        background: #000;
-      }
-
-      .page {
-        width: 100%;
-        display: flex;
-        justify-content: center; /* true centering */
-      }
-
-      .UNDO {
-        /* scale factor capped to 1200px visually on large screens */
-        --scale: min(calc(1200 / 1920), calc(100vw / 1920));
-
-        transform-origin: top center;
-        transform: scale(var(--scale));
-
-        /*
-          IMPORTANT: transform doesn't affect layout size.
-          Use zoom where supported so width/height shrink too (prevents clipping issues).
-        */
-      }
-
-      @supports (zoom: 1) {
-        .UNDO {
-          zoom: var(--scale);
-          transform: none;
+      /* RESPONSIVE OVERRIDES - Solo per mobile */
+      @media (max-width: 1024px) {
+        body {
+          overflow-x: hidden;
         }
-      }
 
-      /* Tablet breakpoint */
-      @media (max-width: 768px) {
-        .UNDO {
-          --scale: calc(100vw / 1920);
+        .page {
+          width: 100%;
         }
-        /* reduce fixed title a bit */
+
+        .UNDO {
+          width: 100%;
+          min-height: auto;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+        }
+
         .UNDO .text-wrapper-6 {
-          transform-origin: top left;
-          transform: scale(0.9);
+          position: fixed !important;
+          font-size: 64px;
+          left: 20px !important;
+          top: 10px !important;
+          z-index: 1000;
+        }
+
+        /* Reset tutti i position absolute */
+        .UNDO > * {
+          position: relative !important;
+          width: 100% !important;
+          height: auto !important;
+          left: auto !important;
+          top: auto !important;
+          margin: 0 !important;
+        }
+
+        /* Metadata in colonna */
+        .UNDO .medium,
+        .UNDO .text-wrapper,
+        .UNDO .role,
+        .UNDO .div,
+        .UNDO .year,
+        .UNDO .text-wrapper-2,
+        .UNDO .deliverables,
+        .UNDO .p {
+          margin-bottom: 10px !important;
+          white-space: normal !important;
+        }
+
+        .UNDO .medium {
+          margin-top: 80px !important;
+        }
+
+        /* Immagini responsive */
+        .UNDO img {
+          width: 100% !important;
+          height: auto !important;
+          margin: 20px 0 !important;
+        }
+
+        /* Testi */
+        .UNDO .UNDO-is-a-typeface,
+        .UNDO .despite-its,
+        .UNDO .UNDO-integrates,
+        .UNDO .each-script-was,
+        .UNDO .the-project-entirely {
+          font-size: 18px !important;
+          line-height: 1.4 !important;
+          margin: 20px 0 !important;
+        }
+
+        /* Footer */
+        .UNDO .group {
+          width: 100% !important;
+          height: auto !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 15px !important;
+          margin-top: 40px !important;
+        }
+
+        .UNDO .text-wrapper-3,
+        .UNDO .text-wrapper-4,
+        .UNDO .text-wrapper-5 {
+          position: relative !important;
+          left: auto !important;
+          text-align: center !important;
         }
       }
 
-      /* Phone breakpoint */
+      @media (max-width: 768px) {
+        .UNDO .text-wrapper-6 {
+          font-size: 56px !important;
+          left: 15px !important;
+        }
+
+        .UNDO .UNDO-is-a-typeface,
+        .UNDO .despite-its,
+        .UNDO .UNDO-integrates,
+        .UNDO .each-script-was,
+        .UNDO .the-project-entirely {
+          font-size: 16px !important;
+        }
+      }
+
       @media (max-width: 480px) {
         .UNDO {
-          --scale: calc(100vw / 1920);
+          padding: 10px;
         }
+
         .UNDO .text-wrapper-6 {
-          transform-origin: top left;
-          transform: scale(0.75);
+          font-size: 48px !important;
+          left: 10px !important;
+        }
+
+        .UNDO img {
+          margin: 15px 0 !important;
         }
       }
     </style>
@@ -577,46 +616,28 @@
         construction, and final presentation across multiple physical and visual outputs.
       </p>
       <img class="sonia-cattaneo" src="images/1_Undo.jpg" />
-      <img class="img" src="images/2_Undo.jpg" />
-      <img class="sonia-cattaneo-2" src="images/3_Undo.jpg" />
-      <img class="sonia-cattaneo-3" src="images/4_Undo.jpg" />
-      <img class="sonia-cattaneo-4" src="images/5_Undo.jpg" />
-      <img class="sonia-cattaneo-5" src="images/6_Undo.jpg" />
-      <img class="sonia-cattaneo-6" src="images/7_Undo.jpg" />
-      <img class="sonia-cattaneo-7" src="images/8_Undo.jpg" />
-      <img class="sonia-cattaneo-8" src="images/9_Undo.jpg" />
-      <img class="closeup" src="images/10_Undo.jpg" />
-      <img class="sonia-cattaneo-9" src="images/11_Undo.jpg" />
-      <img class="sonia-cattaneo-10" src="images/12_Undo.jpg" />
-      <img class="sonia-cattaneo-11" src="images/13_Undo.jpg" />
-      <img class="sonia-cattaneo-12" src="images/14_Undo.jpg" />
-      <img class="sonia-cattaneo-13" src="images/15_Undo.jpg" />
-      <img class="sonia-cattaneo-14" src="images/16_Undo.jpg" />
       <p class="UNDO-is-a-typeface">
         UNDO IS A TYPEFACE SYSTEM DESIGNED TO INTEGRATE BRAILLE WITH DIFFERENT ALPHABETS. IT IS DISTINGUISHED BY ITS
         ABILITY TO ADAPT TO THE RIGID GRID OF BRAILLE, HARMONIZING CHARACTERS BELONGING TO HETEROGENEOUS WRITING
         SYSTEMS. THE RESULT IS A MONOSPACED, SANS SERIF, LOW-CONTRAST FONT THAT AIMS TO BE HIGHLY LEGIBLE.
       </p>
+      <img class="sonia-cattaneo-3" src="images/4_Undo.jpg" />
+      <img class="img" src="images/2_Undo.jpg" />
+      <img class="sonia-cattaneo-2" src="images/3_Undo.jpg" />
       <p class="despite-its">
         DESPITE ITS WIDESPREAD USE, THERE IS CURRENTLY NO FONT THAT INTEGRATES BRAILLE WITH OTHER SCRIPTS. THIS GAP
         HIGHLIGHTS THE NEED FOR NEW TYPOGRAPHIC SOLUTIONS THAT CAN BRIDGE DIFFERENT ALPHABETS AND TACTILE READING
         SYSTEMS, FOSTERING INCLUSIVITY AND COMMUNICATION ACROSS DIVERSE LINGUISTIC AND SENSORY NEEDS.
       </p>
+      <img class="closeup" src="images/10_Undo.jpg" />
       <p class="UNDO-integrates">
         UNDO INTEGRATES BRAILLE AND VISUAL ALPHABETS ON TWO LEVELS: PHYSICAL, BY BRINGING WRITING SYSTEMS USUALLY KEPT
         SEPARATE INTO THE SAME TYPOGRAPHIC SPACE, AND HUMAN, BY PROMOTING INCLUSION AND EQUALITY BETWEEN SIGHTED AND
         BLIND PEOPLE. ADDITIONALLY, THIS COEXISTENCE HAS AN EDUCATIONAL ROLE, SUPPORTING THE LEARNING OF BRAILLE ALSO
         FOR SIGHTED READERS.
       </p>
-      <img class="sonia-cattaneo-15" src="images/17_Undo.jpg" />
-      <img class="sonia-cattaneo-16" src="images/18_Undo.jpg" />
-      <img class="sonia-cattaneo-17" src="images/19_Undo.jpg" />
-      <img class="sonia-cattaneo-18" src="images/20_Undo.jpg" />
-      <img class="sonia-cattaneo-19" src="images/21_Undo.jpg" />
-      <img class="sonia-cattaneo-20" src="images/22_Undo.jpg" />
-      <img class="sonia-cattaneo-21" src="images/23_Undo.jpg" />
-      <img class="sonia-cattaneo-22" src="images/24_Undo.jpg" />
-      <img class="sonia-cattaneo-23" src="images/25_Undo.jpg" />
+      <img class="sonia-cattaneo-5" src="images/6_Undo.jpg" />
+      <img class="sonia-cattaneo-4" src="images/5_Undo.jpg" />
       <p class="each-script-was">
         EACH SCRIPT WAS SELECTED TO DEMONSTRATE THE FLEXIBILITY OF THE SYSTEM: STARTING WITH BRAILLE, CONSISTING OF
         DOTS, THE FONT TAKE SHAPE BASED ON LATIN, THE DOMINANT SCRIPT CHARACTERIZED BY BOTH SINUOUS AND SQUARISH SHAPES;
@@ -625,12 +646,30 @@
         UP UNTIL THE 20TH CENTURY, TRANSLITERATES CROATIAN, SERBIAN AND BOSNIAN DIRECTLY AND IS CHARACTERIZED BY SINUOUS
         SHAPES.
       </p>
+      <img class="sonia-cattaneo-16" src="images/18_Undo.jpg" />
       <p class="the-project-entirely">
         THE PROJECT, ENTIRELY HAND-DRAWN, CONSISTS OF A SERIES OF GRID-PAPER BOARDS FEATURING THE FOUR COMPLETE
         ALPHABETS AT DIFFERENT SCALES, BOARDS DEDICATED TO THE KEY WORDS THAT DEFINE THE UNDO TYPEFACE, AND WHITE BOARDS
         IN WHICH EACH ALPHABET IS REPRESENTED BY A SINGLE KEY WORD WITH AN ENGLISH SUBTITLE SET IN THE CORRECT BRAILLE
         PROPORTIONS.
       </p>
+      <img class="sonia-cattaneo-15" src="images/17_Undo.jpg" />
+      <img class="sonia-cattaneo-17" src="images/19_Undo.jpg" />
+      <img class="sonia-cattaneo-19" src="images/21_Undo.jpg" />
+      <img class="sonia-cattaneo-18" src="images/20_Undo.jpg" />
+      <img class="sonia-cattaneo-21" src="images/23_Undo.jpg" />
+      <img class="sonia-cattaneo-22" src="images/24_Undo.jpg" />
+      <img class="sonia-cattaneo-23" src="images/25_Undo.jpg" />
+      <img class="sonia-cattaneo-20" src="images/22_Undo.jpg" />
+      <img class="sonia-cattaneo-11" src="images/13_Undo.jpg" />
+      <img class="sonia-cattaneo-10" src="images/12_Undo.jpg" />
+      <img class="sonia-cattaneo-13" src="images/15_Undo.jpg" />
+      <img class="sonia-cattaneo-14" src="images/16_Undo.jpg" />
+      <img class="sonia-cattaneo-12" src="images/14_Undo.jpg" />
+      <img class="sonia-cattaneo-6" src="images/7_Undo.jpg" />
+      <img class="sonia-cattaneo-9" src="images/11_Undo.jpg" />
+      <img class="sonia-cattaneo-7" src="images/8_Undo.jpg" />
+      <img class="sonia-cattaneo-8" src="images/9_Undo.jpg" />
       <div class="group">
         <p class="text-wrapper-3">©2025 - All Rights Reserved</p>
         <div class="text-wrapper-4">GO TO PREVIOUS ONE</div>
