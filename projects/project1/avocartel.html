@@ -43,6 +43,8 @@
     .caption{padding-top: 0; padding-bottom: 0;}
 
     img{width:100%;display:block;}
+    video{width:100%;height:auto;display:block;}
+    .hero-video{width:100%;height:auto;display:block;}
 
     .bleed{width:100vw;margin-left:50%;transform:translateX(-50%);}
     .frame{padding:var(--gap);background:#000;}
@@ -305,7 +307,11 @@
 </header>
 
 <!-- HERO IMAGE -->
-<section class="bleed frame"><img src="images/1_Avocartel.mp4"></section>
+<section class="bleed frame">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+    <source src="./images/1_Avocartel.mp4" type="video/mp4">
+  </video>
+</section>
 
 <section class="caption">
   <div class="text-left">
@@ -316,7 +322,7 @@
   </div>
 </section>
 
-<section class="bleed frame"><img src="images/2_Avocartel.jpg"></section>
+<section class="bleed frame"><img src="./images/2_Avocartel.jpg"></section>
 
 <section class="caption">
   <div class="text-right">
@@ -328,14 +334,14 @@
   </div>
 </section>
 
-<section class="bleed frame"><img src="images/3_Avocartel.jpg"></section>
+<section class="bleed frame"><img src="./images/3_Avocartel.jpg" loading="lazy"></section>
 
 <section class="bleed">
   <div class="grid-frame">
     <div class="grid-3">
-      <img src="images/4_Avocartel.jpg">
-      <img src="images/5_Avocartel.jpg">
-      <img src="images/6_Avocartel.jpg">
+      <img src="./images/4_Avocartel.jpg" loading="lazy">
+      <img src="./images/5_Avocartel.jpg" loading="lazy">
+      <img src="./images/6_Avocartel.jpg" loading="lazy">
     </div>
   </div>
 </section>
@@ -349,10 +355,10 @@
   </div>
 </section>
 
-<section class="bleed frame"><img src="images/7_Avocartel.jpg"></section>
+<section class="bleed frame"><img src="./images/7_Avocartel.jpg" loading="lazy"></section>
 
 <section class="bleed panel orange">
-  <div class="frame"><img src="images/8_Avocartel.jpg"></div>
+  <div class="frame"><img src="./images/8_Avocartel.jpg" loading="lazy"></div>
 </section>
 <section class="caption">
   <div class="text-right">
@@ -366,13 +372,13 @@
 <section class="bleed">
   <div class="grid-frame">
     <div class="grid-35-65">
-      <img src="images/9_Avocartel.jpg">
-      <img src="images/10_Avocartel.jpg">
+      <img src="./images/9_Avocartel.jpg" loading="lazy">
+      <img src="./images/10_Avocartel.jpg" loading="lazy">
     </div>
   </div>
 </section>
 
-<section class="bleed frame"><img src="images/11_Avocartel.jpg"></section>
+<section class="bleed frame"><img src="./images/11_Avocartel.jpg" loading="lazy"></section>
 <section class="caption">
   <div class="text-right">
     At the core of the system is the scale Libre, a device that integrates analog and digital 
@@ -381,7 +387,7 @@
     lootings, kidnappings, and human victims.
   </div>
 </section>
-<section class="bleed frame"><img src="images/12_Avocartel.jpg"></section>
+<section class="bleed frame"><img src="./images/12_Avocartel.jpg" loading="lazy"></section>
 <section class="caption">
   <div class="text-right">
     At the end of the experience, the scale releases a label that functions both as a receipt and as a tool of 
@@ -394,31 +400,31 @@
 <section class="bleed">
   <div class="grid-frame">
     <div class="grid-65-35">
-      <img src="images/13_Avocartel.jpg">
-      <img src="images/14_Avocartel.jpg">
+      <img src="./images/13_Avocartel.jpg" loading="lazy">
+      <img src="./images/14_Avocartel.jpg" loading="lazy">
     </div>
   </div>
 </section>
 
-<section class="bleed frame"><img src="images/15_Avocartel.jpg"></section>
+<section class="bleed frame"><img src="./images/15_Avocartel.jpg" loading="lazy"></section>
 
 <section class="bleed">
   <div class="grid-frame">
     <div class="grid-50">
-      <img src="images/16_Avocartel.jpg">
-      <img src="images/17_Avocartel.jpg">
+      <img src="./images/16_Avocartel.jpg" loading="lazy">
+      <img src="./images/17_Avocartel.jpg" loading="lazy">
     </div>
   </div>
 </section>
 
 <!--<section class="bleed panel green">
   <div class="grid-50" style="background:transparent;">
-    <img src="images/Immagine_17.jpg">
-    <img src="images/Immagine_18.jpg">
+    <img src="./images/Immagine_17.jpg" loading="lazy">
+    <img src="./images/Immagine_18.jpg" loading="lazy">
   </div>
 </section>-->
 
-<section class="bleed frame"><img src="images/18_Avocartel.jpg"></section>
+<section class="bleed frame"><img src="./images/18_Avocartel.jpg" loading="lazy"></section>
 
 <footer>
   <div class="footer-grid">
@@ -433,7 +439,7 @@
       <div style="margin-top:16px;">©2026 – All Rights Reserved</div>
     </div>
     <div style="text-align:right;">
-      <a href="../project3/scraps.html" class="footer-next">GO TO NEXT ONE &gt;</a>
+      <a href="../project2/scraps.html" class="footer-next">GO TO NEXT ONE &gt;</a>
     </div>
   </div>
 </footer>
