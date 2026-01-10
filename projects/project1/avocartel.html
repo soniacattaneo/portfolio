@@ -1,412 +1,255 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AVOCARTEL – Project</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AVOCARTEL – Project</title>
 
-    <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
+  <!-- Funnel Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;800&display=swap" rel="stylesheet">
 
-        
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
 
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-            background-color: #000;
-            color: #fff;
-            line-height: 1.5;
-        }
+    :root{
+      --bg:#000;
+      --fg:#fff;
+      --muted:rgba(255,255,255,.4);
+      --gap:4px;
+      --font:"Funnel Display", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --t20:clamp(14px,1.05vw,20px);
+      --t96:clamp(44px,4.8vw,96px);
+      --lh23:23px;
+      --lh110:110.4px;
+    }
 
-        img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);}
 
-        .container {
-            width: 100%;
-            
-            margin: 0 auto;
-            padding-inline: 1.5rem;
-        }
+    img{width:100%;display:block;}
 
-        .project {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+    .bleed{width:100vw;margin-left:50%;transform:translateX(-50%);}
+    .frame{padding:var(--gap);background:#000;}
 
-        /* HEADER */
-        .project-header {
-            padding-block: 2.5rem 2rem;
-            border-bottom: 1px solid #333;
-        }
+    /* ---------------- HEADER ---------------- */
+    .hero{position:relative;}
+    .hero-topmark{
+      position:absolute;left:10px;top:0;
+      font-size:var(--t96);font-weight:800;line-height:var(--lh110);
+    }
+    .hero-meta{padding:110px 10px 24px;}
 
-        .project-header-main {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
+    .meta-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:80px;
+    }
 
-        .project-title {
-            margin: 0;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
+    .label{
+      color:var(--muted);
+      font-size:var(--t20);
+      text-transform:uppercase;
+      line-height:var(--lh23);
+    }
 
-        .project-tagline {
-            margin: 0;
-            font-size: 1.25rem;
-            opacity: 0.9;
-        }
+    .value{
+      font-size:var(--t20);
+      line-height:var(--lh23);
+      margin-top:6px;
+    }
 
-        .project-divider {
-            border: none;
-            border-top: 1px solid #444;
-            margin: 1.75rem 0 1.5rem;
-        }
+    .press-awards{
+      margin-top:18px;
+      font-size:var(--t20);
+      text-transform:uppercase;
+      line-height:var(--lh23);
+    }
 
-        .meta-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.25rem 2rem;
-        }
+    /* ---------------- TEXT BANDS ---------------- */
+    .caption{
+      padding:14px 10px;
+      font-size:var(--t20);
+      text-transform:uppercase;
+      line-height:var(--lh23);
+    }
 
-        .meta-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.15rem;
-        }
+    .text-left{max-width:1266px;}
+    .text-right{max-width:1266px;margin-left:auto;}
 
-        .meta-label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: rgba(255, 255, 255, 0.6);
-        }
+    /* ---------------- MEDIA ---------------- */
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:var(--gap);
+      padding:var(--gap);
+      background:#000;
+    }
 
-        .meta-value {
-            font-size: 1rem;
-        }
+    .grid-50{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:var(--gap);
+      padding:var(--gap);
+      background:#000;
+    }
 
-        .meta-deliverables {
-            margin: 0.75rem 0 0;
-            font-size: 1rem;
-            max-width: 40rem;
-        }
+    .panel.orange{background:#E74516;}
+    .panel.green{background:#B5BC2C;}
 
-        .project-intro {
-            margin-top: 2rem;
-            font-size: 1.3rem;
-            max-width: 60rem;
-        }
+    /* ---------------- FOOTER ---------------- */
+    footer{padding:40px 10px;}
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:end;
+    }
+    .footer-grid div{text-transform:uppercase;font-size:var(--t20);}
+    .center{text-align:center;}
+    .muted{color:var(--muted);}
 
-        .project-main {
-            padding-block: 2rem 3rem;
-        }
-
-        /* FULL WIDTH SECTIONS (IMMAGINI) */
-        .project-section--full {
-            padding: 0;
-            margin: 0;
-        }
-
-        .project-section--full + .project-section--full {
-            margin-top: 0; /* nessun gap verticale extra, le immagini stanno attaccate come nel layout originale */
-        }
-
-        /* Cornice nera esterna per tutte le immagini/video full-width, coerente con three-col-grid */
-        .project-section--full > .fw-wrapper {
-            background-color: #000;
-            padding: 4px; /* stessa misura usata in three-col-grid */
-        }
-
-
-        .fw-wrapper {
-            width: 100vw;
-            margin-left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .video-frame {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        overflow: hidden;
-        }
-
-        .video-frame video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        }
-
-        .three-col-grid {
-            display: grid;
-            gap: 4px; /* spazio nero tra le immagini */
-            background-color: #000; /* colore della griglia */
-            grid-template-columns: 1fr; /* mobile: 1 colonna */
-            padding-left: 4px;
-            padding-right: 4px;
-            height: 100%;
-        }
-
-        /* Rende i wrapper interni normali (non full-bleed) dentro la griglia a 3 colonne */
-        .three-col-grid .fw-wrapper {
-            width: 100%;
-            margin-left: 0;
-            transform: none;
-        }
-
-        .two-col-35-65 {
-            display: grid;
-            grid-template-columns: 35% 65%;
-            gap: 4px;
-            background-color: #000;
-            
-        }
-
-        .two-col-35-65 img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .two-col-65-35 {
-            display: grid;
-            grid-template-columns: 65% 35%;
-            gap: 4px;
-            background-color: #000;
-            
-        }
-
-        .two-col-65-35 img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .two-col-50-50 {
-            display: grid;
-            grid-template-columns: 50% 50%;
-            gap: 4px;
-            background-color: #000;
-            
-        }
-
-        .two-col-50-50 img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        /* FOOTER */
-        footer {
-            border-top: 1px solid #333;
-            padding: 2rem 0;
-        }
-
-        .footer-text {
-            text-align: center;
-            opacity: 0.8;
-        }
-
-        @media (min-width: 576px) {
-            .three-col-grid {
-                grid-template-columns: repeat(2, 1fr); /* tablet: 2 colonne */
-            }
-        }
-
-        /* MEDIA QUERY DESKTOP */
-        @media (min-width: 992px) {
-            .project-header-main {
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-            }
-
-            .project-title {
-                font-size: 3.5rem;
-            }
-
-            .project-tagline {
-                font-size: 1.6rem;
-            }
-
-            .meta-row {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-            }
-            .three-col-grid {
-                grid-template-columns: repeat(3, 1fr); /* desktop: 3 colonne */
-            }
-        }
-    </style>
+    /* ---------------- MOBILE ---------------- */
+    @media(max-width:991px){
+      .hero-topmark{position:static;padding:10px;}
+      .hero-meta{padding:10px;}
+      .meta-grid{grid-template-columns:1fr;gap:18px;}
+      .grid-3,.grid-50{grid-template-columns:1fr;}
+      .footer-grid{grid-template-columns:1fr;text-align:center;gap:20px;}
+    }
+  </style>
 </head>
 
 <body>
-<div class="project">
 
-    <!-- HEADER ORIGINALE RICOSTRUITO IN VERSIONE RESPONSIVE -->
-    <header class="project-header">
-        <div class="container">
-            <div class="project-header-main">
-                <h1 class="project-title">AVOCARTEL</h1>
-                <p class="project-tagline">Más compra, más vida</p>
-            </div>
-
-            <hr class="project-divider" />
-
-            <div class="meta-row">
-                <div class="meta-item">
-                    <span class="meta-label">Medium</span>
-                    <span class="meta-value">Editorial project</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">Editorial project</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Year</span>
-                    <span class="meta-value">2024</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Deliverables</span>
-                    <span class="meta-value">Scraps was born from the necessity to redefine the value of waste and the gap in value</span>
-                </div>
-            </div>
-
-            
+<header class="hero">
+  <div class="hero-topmark">SC</div>
+  <div class="hero-meta">
+    <div class="meta-grid">
+      <div>
+        <div class="label">Medium</div>
+        <div class="value">Interactive Installation</div>
+      </div>
+      <div>
+        <div class="label">Role</div>
+        <div class="value">
+          Concept Developer<br>
+          Experience Designer<br>
+          Visual Identity Designer
         </div>
-    </header>
-
-    <main class="project-main">
-
-        <!-- IMMAGINI FULL WIDTH IN ORDINE, COME NEL LAYOUT ORIGINALE -->
-        <!-- 1 -->
-<section class="project-section--full">
-    <div class="fw-wrapper">
-        <img src="images/Immagine_1.jpg" alt="AVOCARTEL Immagine 1" />
-        <p class="project-intro" style="text-indent: 100px;">
-                SCRAPS è una rivista indipendente che indaga le logiche attraverso cui valore e scarto vengono
-                continuamente prodotti e ridefiniti all’interno dei sistemi economici, ambientali e sociali.
-                SCRAPS propone una prospettiva alternativa, in cui la sostenibilità nasce dall’equilibrio tra cose,
-                luoghi e persone.
-        </p>
-    </div>
-</section>
-
-<!-- 2 — VIDEO CORRETTO -->
-<section class="project-section--full">
-    <div class="fw-wrapper video-frame">
-        <video src="images/Video_1.mp4" controls playsinline></video>
-    </div>
-</section>
-
-<!-- 3 (che in realtà è Immagine_2) -->
-<section class="project-section--full">
-    <div class="fw-wrapper">
-        <img src="images/Immagine_2.jpg" alt="AVOCARTEL Immagine 2" />
-    </div>
-</section>
-
-<!-- 4 -->
-<section class="project-section--full">
-    <div class="fw-wrapper">
-        <img src="images/Immagine_3.jpg" alt="AVOCARTEL Immagine 3" />
-    </div>
-</section>
-
-<section class="project-section--full">
-    <div class="three-col-grid">
-        <div class="fw-wrapper">
-            <img src="images/Immagine_4.jpg" alt="AVOCARTEL Immagine 4" />
+      </div>
+      <div>
+        <div class="label">Year</div>
+        <div class="value">2024</div>
+      </div>
+      <div>
+        <div class="label">Deliverables</div>
+        <div class="value">
+          “What if organized crime had a monopoly over the avocado market?”
+          Avocartel answers this question through an award-winning interactive installation,
+          presented at Supersalone 2025.
         </div>
-
-        <div class="fw-wrapper">
-            <img src="images/Immagine_5.jpg" alt="AVOCARTEL Immagine 5" />
-        </div>
-
-        <div class="fw-wrapper">
-            <img src="images/Immagine_6.jpg" alt="AVOCARTEL Immagine 6" />
-        </div>
+      </div>
     </div>
+
+    <div class="press-awards">
+      Press and awards<br>
+      _ Raw Scenarios: Reflections on Human Overconsumption, 2024, DotDotDot<br>
+      _ Interaction & Experience Unirsm Design Contest 2024<br>
+      _ Interdependence: Exploring Opposites, 2025, SaloneSatellite<br>
+      _ Avocartel: il peso morale e sociale dell’avocado<br>
+      _ Il lato oscuro dell’avocado
+    </div>
+  </div>
+</header>
+
+<!-- HERO IMAGE -->
+<section class="bleed frame"><img src="images/Immagine_1.jpg"></section>
+
+<section class="caption">
+  <div class="text-left">
+    Avocartel is a award-winning speculative design project that imagines a future
+    in which organized crime controls the global avocado market.
+  </div>
 </section>
 
-<!-- 8 -->
-<section class="project-section--full">
-    <div class="fw-wrapper">
-        <img src="images/Immagine_7.jpg" alt="AVOCARTEL Immagine 7" />
-    </div>
+<section class="bleed frame"><img src="images/Immagine_2.jpg"></section>
+
+<section class="caption">
+  <div class="text-left">
+    The avocado, known as “green gold”, has become a strategic commodity marked by violence,
+    exploitation and territorial control.
+  </div>
 </section>
 
-<!-- 9 and 10 replaced with two-col-35-65 layout -->
-<section class="project-section--full">
-    <div class="two-col-35-65">
-        <div class="img-left">
-            <img src="images/Immagine_8.jpg" alt="AVOCARTEL Immagine 8" />
-        </div>
-        <div class="img-right">
-            <img src="images/Immagine_9.jpg" alt="AVOCARTEL Immagine 9" />
-        </div>
-    </div>
+<section class="bleed frame"><img src="images/Immagine_3.jpg"></section>
+
+<section class="bleed">
+  <div class="grid-3">
+    <img src="images/Immagine_4.jpg">
+    <img src="images/Immagine_5.jpg">
+    <img src="images/Immagine_6.jpg">
+  </div>
 </section>
 
-<!-- 10 -->
-<section class="project-section--full">
-    <div class="fw-wrapper">
-        <img src="images/Immagine_10.jpg" alt="AVOCARTEL Immagine 10" />
-    </div>
+<section class="bleed frame"><img src="images/Immagine_7.jpg"></section>
+
+<section class="bleed panel orange">
+  <div class="frame"><img src="images/Immagine_8.jpg"></div>
 </section>
 
-<!-- 12 and 13 replaced with two-col-35-65 layout -->
-<section class="project-section--full">
-    <div class="two-col-65-35">
-        <div class="img-left">
-            <img src="images/Immagine_12.jpg" alt="AVOCARTEL Immagine 12" />
-        </div>
-        <div class="img-right">
-            <img src="images/Immagine_13.jpg" alt="AVOCARTEL Immagine 13" />
-        </div>
-    </div>
+<section class="bleed">
+  <div class="grid-50">
+    <img src="images/Immagine_9.jpg">
+    <img src="images/Immagine_10.jpg">
+  </div>
 </section>
 
+<section class="bleed frame"><img src="images/Immagine_11.jpg"></section>
+<section class="bleed frame"><img src="images/Immagine_12.jpg"></section>
 
-
-
-<!-- 15 -->
-<section class="project-section--full">
-    <div class="fw-wrapper">
-        <img src="images/Immagine_14.jpg" alt="AVOCARTEL Immagine 14" />
-    </div>
+<section class="bleed">
+  <div class="grid-50">
+    <img src="images/Immagine_13.jpg">
+    <img src="images/Immagine_14.jpg">
+  </div>
 </section>
 
-<!-- 15 and 16 replaced with two-col-35-65 layout -->
-<section class="project-section--full">
-    <div class="two-col-50-50">
-        <div class="img-left">
-            <img src="images/Immagine_15.jpg" alt="AVOCARTEL Immagine 15" />
-        </div>
-        <div class="img-right">
-            <img src="images/Immagine_16.jpg" alt="AVOCARTEL Immagine 16" />
-        </div>
-    </div>
+<section class="bleed">
+  <div class="grid-50">
+    <img src="images/Immagine_15.jpg">
+    <img src="images/Immagine_16.jpg">
+  </div>
 </section>
 
-<!-- 18 -->
-<section class="project-section--full">
-    <div class="fw-wrapper">
-        <img src="images/Immagine_17.jpg" alt="AVOCARTEL Immagine 17" />
-    </div>
+<section class="bleed panel green">
+  <div class="grid-50" style="background:transparent;">
+    <img src="images/Immagine_17.jpg">
+    <img src="images/Immagine_18.jpg">
+  </div>
 </section>
-    </main>
 
-    <!-- FOOTER -->
-    <footer>
-        <p class="footer-text">©2025 - All Rights Reserved</p>
-    </footer>
+<section class="bleed panel green">
+  <div class="grid-3" style="background:transparent;">
+    <img src="images/Immagine_19.jpg">
+    <img src="images/Immagine_20.jpg">
+    <img src="images/Immagine_21.jpg">
+  </div>
+</section>
 
-</div>
+<footer>
+  <div class="footer-grid">
+    <div>GO TO PREVIOUS ONE</div>
+    <div class="center">
+      <div class="muted">LINKS</div>
+      TEASER<br>TRAILER
+      <div class="muted" style="margin-top:16px;">TEAMWORK</div>
+      ARIANNA ALBERTINI, ELISA BRUSHI, SARA CHINI,<br>
+      LETIZIA LURAGHI, RACHELE TARATEO
+      <div style="margin-top:16px;">©2025 – All Rights Reserved</div>
+    </div>
+    <div style="text-align:right;">GO TO NEXT ONE</div>
+  </div>
+</footer>
+
 </body>
 </html>
