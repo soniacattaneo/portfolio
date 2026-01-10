@@ -18,6 +18,8 @@
       --fg:#fff;
       --muted:rgba(255,255,255,.4);
       --gap:4px;
+      /*--section-pad: 24px;    vertical rhythm between sections */
+      /*--section-pad-m: 16px;  mobile vertical rhythm */
       --font:"Funnel Display", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       --t20:clamp(14px,1.05vw,20px);
       --t96:clamp(44px,4.8vw,96px);
@@ -27,16 +29,45 @@
 
     html,body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);}
 
+    /* Consistent vertical rhythm */
+    header.hero{margin-bottom: var(--section-pad); overflow: visible;}
+    section{margin: 0;}
+    section + section{margin-top: var(--section-pad);} /* equal spacing between all sections */
+
+    /* Full-bleed media blocks already have internal 4px frame; keep outer spacing consistent */
+    .bleed.frame,
+    .bleed.panel,
+    .bleed{margin-top: 0;}
+
+    /* Caption spacing should match the global rhythm and align with frames */
+    .caption{padding-top: 0; padding-bottom: 0;}
+
     img{width:100%;display:block;}
 
     .bleed{width:100vw;margin-left:50%;transform:translateX(-50%);}
     .frame{padding:var(--gap);background:#000;}
+    .grid-frame{padding: var(--gap); background:#000;}
 
     /* ---------------- HEADER ---------------- */
-    .hero{position:relative;}
+    .hero{
+      position:relative; overflow: visible;
+    }
     .hero-topmark{
-      position:absolute;left:10px;top:0;
-      font-size:var(--t96);font-weight:800;line-height:var(--lh110);
+      position: fixed;       /* stays visible across the whole page */
+      top: 10px;
+      left: 10px;
+      font-size: var(--t96);
+      font-weight: 800;
+      line-height: var(--lh110);
+      z-index: 9999;
+      pointer-events: auto;  /* clickable */
+      cursor: pointer;
+      display: inline-block;
+      color: var(--fg);
+      text-decoration: none;
+    }
+    .hero-topmark:hover{
+      text-decoration: none;
     }
     .hero-meta{padding:110px 10px 24px;}
 
@@ -65,13 +96,22 @@
       text-transform:uppercase;
       line-height:var(--lh23);
     }
+    .press-awards a{
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .press-awards a:hover{
+      text-decoration: underline;
+    }
+
 
     /* ---------------- TEXT BANDS ---------------- */
     .caption{
-      padding:14px 10px;
-      font-size:var(--t20);
-      text-transform:uppercase;
-      line-height:var(--lh23);
+      padding: 14px 10px;
+      font-size: var(--t20);
+      text-transform: uppercase;
+      line-height: var(--lh23);
     }
 
     .text-left{max-width:1266px;}
@@ -81,17 +121,54 @@
     .grid-3{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:var(--gap);
-      padding:var(--gap);
+      gap: 8px;;
+      padding:0;
       background:#000;
     }
 
     .grid-50{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:var(--gap);
-      padding:var(--gap);
-      background:#000;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      gap: 8px;
+      padding: 0;
+      background: #000;
+      align-items: stretch; /* forces equal column height */
+    }
+
+    .grid-50 img{
+      width: 100%;
+      height: 100%;           /* critical: same height */
+      object-fit: cover;      /* crop instead of stretching */
+    }
+
+    .grid-65-35{
+      display: grid;
+      grid-template-columns: 65% 35%;
+      gap: 8px;
+      padding: 0;
+      background: #000;
+      align-items: stretch; /* forces equal column height */
+    }
+
+    .grid-65-35 img{
+      width: 100%;
+      height: 100%;           /* critical: same height */
+      object-fit: cover;      /* crop instead of stretching */
+    }
+
+    .grid-35-65{
+      display: grid;
+      grid-template-columns: 35% 65%;
+      gap: 8px;
+      padding: 0;
+      background: #000;
+      align-items: stretch; /* forces equal column height */
+    }
+
+    .grid-35-65 img{
+      width: 100%;
+      height: 100%;           /* critical: same height */
+      object-fit: cover;      /* crop instead of stretching */
     }
 
     .panel.orange{background:#E74516;}
@@ -107,14 +184,79 @@
     .footer-grid div{text-transform:uppercase;font-size:var(--t20);}
     .center{text-align:center;}
     .muted{color:var(--muted);}
+    .muted a{
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .muted a:hover{
+      text-decoration: underline;
+    }
+
+    /* Footer video links styling */
+    .footer-grid .center a{
+      font-family: var(--font);
+      font-size: var(--t20);
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .footer-grid .center a:hover{
+      text-decoration: underline;
+    }
+
+    .footer-next{
+      color: var(--fg);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: var(--t20);
+    }
+
+    .footer-next:hover{
+      text-decoration: underline;
+    }
+
 
     /* ---------------- MOBILE ---------------- */
     @media(max-width:991px){
-      .hero-topmark{position:static;padding:10px;}
+      /* .hero-topmark{position:static;padding:10px;} */
       .hero-meta{padding:10px;}
       .meta-grid{grid-template-columns:1fr;gap:18px;}
-      .grid-3,.grid-50{grid-template-columns:1fr;}
-      .footer-grid{grid-template-columns:1fr;text-align:center;gap:20px;}
+      .grid-3,.grid-50,.grid-65-35,.grid-35-65{grid-template-columns:1fr;}
+      .footer-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "center center"
+          "prev next";
+        align-items: end;
+        gap: 20px;
+      }
+
+      /* map the three footer children to the grid areas */
+      .footer-grid > div:nth-child(1){ grid-area: prev; text-align: left; }
+      .footer-grid > div:nth-child(2){ grid-area: center; text-align: center; }
+      .footer-grid > div:nth-child(3){ grid-area: next; text-align: right; }
+
+      .press-awards a{
+        text-decoration: underline;
+      }
+
+      .muted{
+        text-decoration: underline;
+      }
+
+      .footer-grid .center a{
+        text-decoration: underline;
+      }
+
+      .footer-next{
+        text-decoration: underline;
+      }
+
+      header.hero{margin-bottom: var(--section-pad-m);} 
+      section + section{margin-top: var(--section-pad-m);} 
     }
   </style>
 </head>
@@ -122,7 +264,7 @@
 <body>
 
 <header class="hero">
-  <div class="hero-topmark">SC</div>
+  <a href="../../index.html" class="hero-topmark" aria-label="Back to home">SC</a>
   <div class="hero-meta">
     <div class="meta-grid">
       <div>
@@ -153,101 +295,146 @@
 
     <div class="press-awards">
       Press and awards<br>
-      _ Raw Scenarios: Reflections on Human Overconsumption, 2024, DotDotDot<br>
-      _ Interaction & Experience Unirsm Design Contest 2024<br>
-      _ Interdependence: Exploring Opposites, 2025, SaloneSatellite<br>
-      _ Avocartel: il peso morale e sociale dell’avocado<br>
-      _ Il lato oscuro dell’avocado
+      <a href="http://rawscenarios.labsintesi-c1.info/">_ Raw Scenarios: Reflections on Human Overconsumption, 2024, DotDotDot</a><br>
+      <a href="https://design.unirsm.sm/news/interaction-experience-unirsm-design-contest-2024/">_ Interaction & Experience Unirsm Design Contest 2024</a><br>
+      <a href="https://www.interdependence.polimi.it/salonesatellite/">_ Interdependence: Exploring Opposites, 2025, SaloneSatellite</a><br>
+      <a href="https://thesisforyou.com/avocartel-avocado-criminalita-bilancia-tesi/">_ Avocartel: il peso morale e sociale dell’avocado</a><br>
+      <a href="https://www.youtube.com/watch?v=DNnW3xhwhHs">_ Il lato oscuro dell’avocado</a>
     </div>
   </div>
 </header>
 
 <!-- HERO IMAGE -->
-<section class="bleed frame"><img src="images/Immagine_1.jpg"></section>
+<section class="bleed frame"><img src="images/1_Avocartel.mp4"></section>
 
 <section class="caption">
   <div class="text-left">
-    Avocartel is a award-winning speculative design project that imagines a future
-    in which organized crime controls the global avocado market.
+    Avocartel is a award-winning speculative design project that imagines a 
+    future in which organized crime controls the global avocado market. 
+    Through this scenario, the project makes visible the hidden social cost behind an everyday product, 
+    translating economic data into violence, exploitation, and human lives.
   </div>
 </section>
 
-<section class="bleed frame"><img src="images/Immagine_2.jpg"></section>
+<section class="bleed frame"><img src="images/2_Avocartel.jpg"></section>
 
 <section class="caption">
-  <div class="text-left">
-    The avocado, known as “green gold”, has become a strategic commodity marked by violence,
-    exploitation and territorial control.
+  <div class="text-right">
+    In recent years, the avocado has become one of the most profitable commodities on the global market, 
+    to the point of being referred to in Mexico as green gold. The exponential increase in international demand has turned 
+    its production into a highly valuable economic sector, attracting the interest of organized crime. In some Mexican regions, 
+    avocado cultivation and distribution are now marked by labor exploitation, territorial control, violence, and illegal trafficking, 
+    revealing a clear gap between the product’s positive image and the real conditions of its supply chain.
   </div>
 </section>
 
-<section class="bleed frame"><img src="images/Immagine_3.jpg"></section>
+<section class="bleed frame"><img src="images/3_Avocartel.jpg"></section>
 
 <section class="bleed">
-  <div class="grid-3">
-    <img src="images/Immagine_4.jpg">
-    <img src="images/Immagine_5.jpg">
-    <img src="images/Immagine_6.jpg">
+  <div class="grid-frame">
+    <div class="grid-3">
+      <img src="images/4_Avocartel.jpg">
+      <img src="images/5_Avocartel.jpg">
+      <img src="images/6_Avocartel.jpg">
+    </div>
   </div>
 </section>
 
-<section class="bleed frame"><img src="images/Immagine_7.jpg"></section>
+<section class="caption">
+  <div class="text-right">
+    Avocartel’s visual identity draws on the language of pop crime: bright colors, references to Mexican culture, 
+    and an apparently positive aesthetic that contrasts with the harshness of the content. 
+    The vibrant color palette, the ironic tone of voice, and the payoff “Más compra, más vida” 
+    construct a deliberately ambiguous imagery, in which visual appeal masks a deeply disturbing message.
+  </div>
+</section>
+
+<section class="bleed frame"><img src="images/7_Avocartel.jpg"></section>
 
 <section class="bleed panel orange">
-  <div class="frame"><img src="images/Immagine_8.jpg"></div>
+  <div class="frame"><img src="images/8_Avocartel.jpg"></div>
 </section>
-
-<section class="bleed">
-  <div class="grid-50">
-    <img src="images/Immagine_9.jpg">
-    <img src="images/Immagine_10.jpg">
-  </div>
-</section>
-
-<section class="bleed frame"><img src="images/Immagine_11.jpg"></section>
-<section class="bleed frame"><img src="images/Immagine_12.jpg"></section>
-
-<section class="bleed">
-  <div class="grid-50">
-    <img src="images/Immagine_13.jpg">
-    <img src="images/Immagine_14.jpg">
+<section class="caption">
+  <div class="text-right">
+    The Avocartel experience is designed as an ascending climax toward truth. In the first phase, 
+    the user is attracted by the brand’s ambiguity; in the second, they experience an intuitive and reassuring 
+    act of purchase; only at the moment of weighing, through the Bilancia Libre, are they confronted with reality. 
+    The final revelation breaks expectations and forces the consumer to face the true cost of the product.
   </div>
 </section>
 
 <section class="bleed">
-  <div class="grid-50">
-    <img src="images/Immagine_15.jpg">
-    <img src="images/Immagine_16.jpg">
+  <div class="grid-frame">
+    <div class="grid-35-65">
+      <img src="images/9_Avocartel.jpg">
+      <img src="images/10_Avocartel.jpg">
+    </div>
   </div>
 </section>
 
-<section class="bleed panel green">
+<section class="bleed frame"><img src="images/11_Avocartel.jpg"></section>
+<section class="caption">
+  <div class="text-right">
+    At the core of the system is the scale Libre, a device that integrates analog and digital 
+    components to measure not only the physical weight of the avocado but also its “social weight.” 
+    Through four needles, it translates economic value into the number of exploited workers, 
+    lootings, kidnappings, and human victims.
+  </div>
+</section>
+<section class="bleed frame"><img src="images/12_Avocartel.jpg"></section>
+<section class="caption">
+  <div class="text-right">
+    At the end of the experience, the scale releases a label that functions both as a receipt and as a tool of 
+    denunciation. The user is invited to spread the message in public spaces by applying the labels 
+    and sharing the content. Avocartel deliberately adopts the logics of contemporary marketing, loyalty strategies, 
+    merchandising, social media, and web site, to critically expose the mechanisms of consumer persuasion.
+  </div>
+</section>
+
+<section class="bleed">
+  <div class="grid-frame">
+    <div class="grid-65-35">
+      <img src="images/13_Avocartel.jpg">
+      <img src="images/14_Avocartel.jpg">
+    </div>
+  </div>
+</section>
+
+<section class="bleed frame"><img src="images/15_Avocartel.jpg"></section>
+
+<section class="bleed">
+  <div class="grid-frame">
+    <div class="grid-50">
+      <img src="images/16_Avocartel.jpg">
+      <img src="images/17_Avocartel.jpg">
+    </div>
+  </div>
+</section>
+
+<!--<section class="bleed panel green">
   <div class="grid-50" style="background:transparent;">
     <img src="images/Immagine_17.jpg">
     <img src="images/Immagine_18.jpg">
   </div>
-</section>
+</section>-->
 
-<section class="bleed panel green">
-  <div class="grid-3" style="background:transparent;">
-    <img src="images/Immagine_19.jpg">
-    <img src="images/Immagine_20.jpg">
-    <img src="images/Immagine_21.jpg">
-  </div>
-</section>
+<section class="bleed frame"><img src="images/18_Avocartel.jpg"></section>
 
 <footer>
   <div class="footer-grid">
-    <div>GO TO PREVIOUS ONE</div>
+    <div></div>
     <div class="center">
-      <div class="muted">LINKS</div>
-      TEASER<br>TRAILER
+      <div class="muted"><br><br>LINKS</div>
+      <a href="https://www.youtube.com/watch?v=VHnY41zbdTM">VIDEO TEASER</a><br>
+      <a href="https://www.youtube.com/watch?v=S8ZDnQ_Fom0">VIDEO TRAILER</a><br>
       <div class="muted" style="margin-top:16px;">TEAMWORK</div>
       ARIANNA ALBERTINI, ELISA BRUSHI, SARA CHINI,<br>
-      LETIZIA LURAGHI, RACHELE TARATEO
-      <div style="margin-top:16px;">©2025 – All Rights Reserved</div>
+      LETIZIA LURAGHI, RACHELE TARATEO<br><br><br><br>
+      <div style="margin-top:16px;">©2026 – All Rights Reserved</div>
     </div>
-    <div style="text-align:right;">GO TO NEXT ONE</div>
+    <div style="text-align:right;">
+      <a href="../project3/scraps.html" class="footer-next">GO TO NEXT ONE &gt;</a>
+    </div>
   </div>
 </footer>
 
