@@ -7,7 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
-    <style>
+    <link rel="stylesheet" href="../../styles.css">
+    <!--<style>
         * {
             margin: 0;
             padding: 0;
@@ -217,169 +218,193 @@
         .spacer {
             height: 80px;
         }
-    </style>
+    </style>-->
 </head>
 <body>
     <div class="container">
         <!-- Header -->
         <header class="header">
-            <h1>SCRAPS - Lo scarto di valore, il valore dello scarto.</h1>
-            
-            <div class="project-info">
-                <div class="info-item">
-                    <h3>Medium</h3>
-                    <p>Editorial project</p>
+            <a href="../../index.html" class="hero-topmark" aria-label="Back to home">SC</a>
+                <div class="hero-meta">
+                <div class="meta-grid">
+                <div>
+                    <div class="label">Medium</div>
+                    <div class="value">Interactive Installation</div>
                 </div>
-                <div class="info-item">
-                    <h3>Role</h3>
-                    <p>Role</p>
-                </div>
-                <div class="info-item">
-                    <h3>Year</h3>
-                    <p>2024</p>
-                </div>
-                <div class="info-item">
-                    <h3>Deliverables</h3>
-                    <p>Scraps was born from the necessity to redefine the value of waste and the gap in value</p>
-                </div>
-            </div>
+                <div>
+                    <div class="label">Role</div>
+                    <div class="value">
+                        Concept Developer<br>
+                        Editorial Designer
+        </div>
+      </div>
+      <div>
+        <div class="label">Year</div>
+        <div class="value">2025</div>
+      </div>
+      <div>
+        <div class="label">Deliverables</div>
+        <div class="value">
+          Issue 0 of an independent magazine series focused on economic sustainability
+        </div>
+      </div>
+    </div>
         </header>
 
-        <!-- Video Section -->
-        <section class="video-section">
-            <div class="video-label">video</div>
+        <br>
+
+        <br>
+
+        <br>
+
+        <!-- HERO IMAGE -->
+        <section class="bleed frame">
+            <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+                <source src="./images/1_Scraps.mp4" type="video/mp4">
+            </video>
         </section>
 
-        <!-- First Text Section -->
-        <section class="text-section">
-            <h2 class="section-title">testo</h2>
-        </section>
-
-        <!-- Large Image -->
-        <div class="image-grid large">
-            <div class="image-item" style="aspect-ratio: 16/10;">
-                <img src="https://placehold.co/1875x1087" alt="Portfolio Image">
+        <section class="caption">
+            <div class="text-left">
+                SCRAPS is an independent editorial magazine created to question the concept of economic 
+                sustainability through the lens of waste. The project overturns the traditional view that associates waste with loss, 
+                instead proposing it as a space for reflection, possibility, and the transformation of value.
             </div>
-        </div>
+        </section>
+
+        <section class="bleed frame"><img src="./images/2_Scraps.jpg" alt="image 2" loading="lazy"></section>
 
         <!-- Three Column Grid -->
-        <div class="image-grid three-col">
-            <div class="image-item" style="aspect-ratio: 5/3;">
-                <img src="https://placehold.co/585x352" alt="Portfolio Image">
+        <section class="bleed">
+            <div class="grid-frame">
+                <div class="grid-3equal">
+                    <img src="./images/3_Scraps.jpg" alt="Image 3" loading="lazy">
+                    <img src="./images/4_Scraps.jpg" alt="Image 4" loading="lazy">
+                    <img src="./images/5_Scraps.jpg" alt="Image 5" loading="lazy">
+                </div>
             </div>
-            <div class="image-item" style="aspect-ratio: 5/3;">
-                <img src="https://placehold.co/641x352" alt="Portfolio Image">
-            </div>
-            <div class="image-item" style="aspect-ratio: 5/3;">
-                <img src="https://placehold.co/610x352" alt="Portfolio Image">
-            </div>
-        </div>
+        </section>
 
-        <!-- Second Text Section -->
-        <section class="text-section">
-            <h2 class="section-title">testo</h2>
+       <section class="caption">
+            <div class="text-right">
+               The magazine investigates the relationship between value and waste within a contemporary 
+               economic system dominated by the linear logic of consumption and immediate profit. 
+               SCRAPS offers an alternative interpretation of sustainability, understood as a dynamic balance between economy, 
+               society, and environment. The first issue, Burn, uses fire as a narrative and visual metaphor to describe 
+               processes of destruction and regeneration. Subsequent issues, such as Hide and Tear, will further explore the theme through different actions.
+            </div>
         </section>
 
         <!-- Two Column Grid -->
-        <div class="image-grid two-col">
-            <div class="image-item">
-                <img src="https://placehold.co/1098x633" alt="Portfolio Image">
+        <section class="bleed">
+            <div class="grid-frame">
+                <div class="grid-35-65">
+                <img src="./images/6_Scraps.jpg" loading="lazy">
+                <img src="./images/7_Scraps.jpg" loading="lazy">
+                </div>
             </div>
-            <div class="image-item">
-                <img src="https://placehold.co/783x633" alt="Portfolio Image">
+        </section>
+
+        <!--Three grid auto adapt-->
+
+        <section class="bleed">
+            <div class="grid-frame">
+                <div class="grid-cover-3">
+                    <img src="./images/8_Scraps.jpg" loading="lazy">
+                    <img src="./images/9_Scraps.jpg" loading="lazy">
+                    <img src="./images/10_Scraps.png" loading="lazy">
+                </div>
             </div>
-        </div>
+        </section>
+
+         <section class="caption">
+            <div class="text-right">
+               Editorial and layout choices are designed to make the magazine not only a reading tool 
+               but also an instrument for study and learning. 
+               SCRAPS is conceived to guide the reader through a slow form of consultation, 
+               encouraging analysis and comparison of contents.
+            </div>
+        </section>
+        
+        <!--Stop motion Section-->
+
+        <section class="bleed">
+            <video src="./images/11_Scraps.mp4"autoplay muted loop playsinline preload="metadata"></video>
+        </section>
+
 
         <!-- Portfolio Images Section -->
-        <section class="portfolio-section">
-            <div class="portfolio-image">
-                <img src="https://placehold.co/858x1194" alt="Portfolio Detail">
+        <section class="bleed frame"><img src="./images/12_Scraps.jpg" alt="image 2" loading="lazy"></section>
+        <section class="bleed frame"><img src="./images/13_Scraps.jpg" alt="image 2" loading="lazy"></section>
+        <section class="bleed frame"><img src="./images/14_Scraps.jpg" alt="image 2" loading="lazy"></section>
+        
+        <section class="caption">
+            <div class="text-right">
+               One of the central design aspects is the choice of paper, differentiated according to the type of content. 
+               In the section dedicated to reports and complaints, the use of tracing paper creates a double level of reading: 
+               on the surface, the official narratives that companies promote or would like their employees to express; 
+               beneath, on white paper, the full statements and complaints voiced by the employees themselves.
             </div>
         </section>
 
-        <!-- Third Text Section -->
-        <section class="text-section">
-            <h2 class="section-title">testo</h2>
-        </section>
 
-        <!-- Stop Motion Section -->
-        <section class="stop-motion-section">
-            <div class="stop-motion-label">stop motion</div>
-        </section>
+        <section class="bleed frame"><img src="./images/15_Scraps.jpg" alt="image 2" loading="lazy"></section>
 
-        <!-- Content Section with Header -->
-        <section class="content-section">
-            <div class="content-header">
-                <div>
-                    <h3 class="section-subtitle">Titolo<br>della sezione</h3>
-                </div>
-                <div>
-                    <p class="section-subtitle" style="text-align: right;">Rif. all'indice</p>
+        <section class="bleed">
+            <div class="grid-frame">
+                <div class="grid-50">
+                <img src="./images/16_Scraps.jpg" loading="lazy">
+                <img src="./images/17_Scraps.jpg" loading="lazy">
                 </div>
             </div>
-            
-            <div class="portfolio-image">
-                <img src="https://placehold.co/1433x1000" alt="Content Image">
-            </div>
-            
-            <p class="content-label">Contenuto</p>
         </section>
 
-        <!-- Additional Images -->
-        <div class="portfolio-image">
-            <img src="https://placehold.co/1864x792" alt="Portfolio Image">
-        </div>
 
-        <!-- Fourth Text Section -->
-        <section class="text-section">
-            <h2 class="section-title">testo</h2>
+        <section class="bleed frame"><img src="./images/18_Scraps.jpg" alt="image 2" loading="lazy"></section>
+        
+        <section class="caption">
+            <div class="text-right">
+               SCRAPS extends beyond the magazine through an intertextual action that actively involves the reader. 
+               On the occasion of issue 00, adhesive stickers were created to denounce the waste of resources involved in the 
+               production of various products. A video accompanying the release 
+               of the magazine documents the editorial team’s action and invites a collective gesture of public denunciation.
+            </div>
         </section>
 
-        <!-- Two Column Grid -->
-        <div class="image-grid two-col">
-            <div class="image-item">
-                <img src="https://placehold.co/926x496" alt="Portfolio Image">
+        <section class="bleed">
+            <div class="grid-frame">
+                <div class="grid-35-65">
+                <img src="./images/19_Scraps.mp4" autoplay muted loop playsinline preload="metadata">
+                <img src="./images/20_Scraps.jpg" loading="lazy">
+                </div>
             </div>
-            <div class="image-item">
-                <img src="https://placehold.co/926x496" alt="Portfolio Image">
-            </div>
-        </div>
-
-        <!-- Large Images -->
-        <div class="portfolio-image">
-            <img src="https://placehold.co/1876x1006" alt="Portfolio Image">
-        </div>
-
-        <div class="portfolio-image">
-            <img src="https://placehold.co/1876x1006" alt="Portfolio Image">
-        </div>
-
-        <!-- Fifth Text Section -->
-        <section class="text-section">
-            <h2 class="section-title">testo</h2>
         </section>
 
-        <!-- Final Images -->
-        <div class="image-grid two-col">
-            <div class="image-item" style="aspect-ratio: 16/14;">
-                <img src="https://placehold.co/1336x751" alt="Portfolio Image">
-            </div>
-            <div class="image-item" style="aspect-ratio: 5/7;">
-                <img src="https://placehold.co/536x751" alt="Portfolio Image">
-            </div>
-        </div>
 
-        <!-- Sixth Text Section -->
-        <section class="text-section">
-            <h2 class="section-title">testo</h2>
-        </section>
-
-        <!-- Final Large Image -->
-        <div class="portfolio-image">
-            <img src="https://placehold.co/2060x1105" alt="Final Portfolio Image">
-        </div>
+        <section class="bleed frame"><img src="./images/21_Scraps.jpg" alt="image 2" loading="lazy"></section>
+        
 
         <div class="spacer"></div>
     </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <a href="#" class="footer-next">&lt GO TO PREVIOUS ONE</a>
+            </div>
+            <div class="center">
+                <div class="label" style="margin-top:16px;">LINKS</div>
+                    <a href="https://www.youtube.com/watch?v=VHnY41zbdTM">PROJECT VIDEO</a><br>
+                    <a href="https://www.youtube.com/watch?v=S8ZDnQ_Fom0">MAGAZINE STOP MOTION</a><br>
+                        <div class="label" style="margin-top:16px;">TEAMWORK</div>
+                            CARLOTTA BARCHI, giovanni coroneo, <BR>
+                            CECILIA MINA, CECILIA RUSMINI, IRENE TIGRI<br><br><br><br>
+                            <div style="margin-top:16px;">©2026 – All Rights Reserved</div>
+                        </div>
+                <div style="text-align:right;">
+                <a href="../project2/scraps.html" class="footer-next">GO TO NEXT ONE &gt;</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
