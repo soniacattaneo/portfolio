@@ -330,4 +330,4 @@
 
       header.hero{margin-bottom: var(--section-pad-m);} 
       section + section{margin-top: var(--section-pad-m);} 
-    }
+      
