@@ -162,6 +162,31 @@
       background:#000;
     }
 
+    .grid-3-imgs{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* tutte uguali */
+      gap: 8px;
+      background: #000;
+      align-items: stretch;
+    }
+
+    .grid-3-item{
+      aspect-ratio: 9 / 16;  /* stessa altezza, look cinematografico */
+      background:#000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .grid-3-imgs img,
+    .grid-3-imgs video{
+      width:100%;
+      height:100%;
+      object-fit: contain;
+      display:block;
+      background:#000;
+    }
+
     /* 3 immagini: sinistra grande, centro stretta, destra grande */
     .grid-cover-3{
       display: grid;
