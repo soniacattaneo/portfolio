@@ -218,7 +218,7 @@
 
     .grid-60-40{
       display: grid;
-      grid-template-columns: 60% 40%;
+      grid-template-columns: 55% 45%;
       gap: 8px;
       padding: 0;
       background: #000;
