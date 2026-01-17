@@ -206,6 +206,11 @@
       scroll-snap-align: start;
       scroll-snap-stop: always;
     }
+    @supports (height: 100dvh){
+      .hero{ min-height: 100dvh; }
+      .hero .hero-about{ min-height: 100dvh; }
+      .project{ min-height: 100dvh; }
+    }
 
     /*
       Desktop: left meta | media | right meta
