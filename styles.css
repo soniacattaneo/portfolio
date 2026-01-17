@@ -291,7 +291,8 @@
       font-size: clamp(12px, 1.1vw, 16px);
       text-transform: uppercase;
       color: var(--muted);
-      text-align: left;
+      text-align: center;
+      text-decoration: none;
     }
     .project__arrow{
       width: min(1110px, 100%);
