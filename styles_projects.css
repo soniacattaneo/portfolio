@@ -271,6 +271,15 @@
       text-decoration: none;
       text-transform: uppercase;
       font-size: var(--t20);
+      position: fixed;
+      bottom: max(12px, env(safe-area-inset-bottom, 0px));
+      z-index: 9999;
+    }
+    .footer-grid > div:first-child .footer-next{
+      left: 10px;
+    }
+    .footer-grid > div:last-child .footer-next{
+      right: 10px;
     }
 
     .footer-next:hover{
