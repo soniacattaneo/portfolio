@@ -61,6 +61,8 @@
       overflow:hidden;
       text-overflow:ellipsis;
       margin-top: 0;
+      pointer-events: auto;
+      text-decoration: none;
     }
 
 
