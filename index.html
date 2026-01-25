@@ -250,8 +250,7 @@
   </section>
 
   <script>
-    const navEntry = performance.getEntriesByType("navigation")[0];
-    if (navEntry && navEntry.type === "reload") {
+    if (!window.location.hash) {
       if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
       }

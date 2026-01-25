@@ -99,10 +99,10 @@
                     <video autoplay muted loop playsinline preload="metadata">
                         <source src="./images/5_IDgramma.mp4" type="video/mp4">
                     </video>
-                    <video muted loop playsinline preload="metadata" data-delay="500">
+                    <video autoplay muted loop playsinline preload="metadata" data-delay="500">
                         <source src="./images/6_IDgramma.mp4" type="video/mp4">
                     </video>
-                    <video muted loop playsinline preload="metadata" data-delay="1000">
+                    <video autoplay muted loop playsinline preload="metadata" data-delay="1000">
                         <source src="./images/7_IDgramma.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -112,22 +112,20 @@
         <script>
             window.addEventListener("DOMContentLoaded", () => {
                 const playWithDelay = (video, delayMs) => {
-                    video.autoplay = false;
-                    video.pause();
-                    video.currentTime = 0;
-                    setTimeout(() => {
-                        const tryPlay = () => {
+                    const start = () => {
+                        video.pause();
+                        setTimeout(() => {
                             const playPromise = video.play();
                             if (playPromise && typeof playPromise.catch === "function") {
                                 playPromise.catch(() => {});
                             }
-                        };
-                        if (video.readyState >= 2) {
-                            tryPlay();
-                        } else {
-                            video.addEventListener("loadeddata", tryPlay, { once: true });
-                        }
-                    }, delayMs);
+                        }, delayMs);
+                    };
+                    if (video.readyState >= 2) {
+                        start();
+                    } else {
+                        video.addEventListener("loadeddata", start, { once: true });
+                    }
                 };
 
                 document.querySelectorAll("video[data-delay]").forEach((video) => {
