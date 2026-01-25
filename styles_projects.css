@@ -17,6 +17,10 @@
     }
 
     html,body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);}
+    html{
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
 
     /* Consistent vertical rhythm */
     header.hero{margin-bottom: var(--section-pad); overflow: visible;}
@@ -41,7 +45,12 @@
       margin: 0 auto;
     }
 
-    .bleed{width:100vw;margin-left:50%;transform:translateX(-50%);}
+    .bleed{
+      width:100%;
+      margin-left:calc(50% - 50vw);
+      margin-right:calc(50% - 50vw);
+      transform:none;
+    }
     .frame{padding:var(--gap);background:#000;}
     .grid-frame{padding: var(--gap); background:#000;}
 

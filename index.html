@@ -250,9 +250,16 @@
   </section>
 
   <script>
-    if (!window.location.hash) {
+    const navEntry = performance.getEntriesByType("navigation")[0];
+    const legacyNav = performance.navigation ? performance.navigation.type : 0;
+    const isReload = (navEntry && navEntry.type === "reload") || legacyNav === 1;
+
+    if (isReload) {
       if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
+      }
+      if (window.location.hash) {
+        history.replaceState(null, "", window.location.pathname + window.location.search);
       }
       window.scrollTo(0, 0);
     }

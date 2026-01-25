@@ -19,7 +19,12 @@
 
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
-    html{ scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+    html{
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
     body{
       margin:0;
       background:var(--bg);
@@ -187,9 +192,9 @@
     /* ===== PROJECT LIST ===== */
     .projects{
       /* full-bleed, no extra whitespace between projects */
-      width: 100vw;
-      margin-left: 50%;
-      transform: translateX(-50%);
+      width: 100%;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
       padding: 0;
       display:flex;
       flex-direction:column;
