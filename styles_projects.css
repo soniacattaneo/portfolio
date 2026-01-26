@@ -421,6 +421,15 @@
       z-index: 9990;
       pointer-events: none;
     }
+
+    @media (max-width: 899px){
+      body::after{
+        display: none;
+      }
+      .footer-next{
+        bottom: max(6px, env(safe-area-inset-bottom, 0px));
+      }
+    }
     .footer-grid > div:first-child .footer-next{
       left: 10px;
     }
