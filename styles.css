@@ -35,6 +35,17 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
+
+@media (max-width: 899px) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
+  .hero,
+  .project,
+  footer {
+    scroll-snap-stop: normal;
+  }
+}
 body {
   margin: 0;
   background: var(--bg);
