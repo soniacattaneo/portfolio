@@ -1,60 +1,111 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sonia Cattaneo — Portfolio</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sonia Cattaneo — Portfolio</title>
+    <link rel="icon" href="images/favicon.jpg" />
+    <meta
+      name="description"
+      content="Portfolio di Sonia Cattaneo, communication designer. Progetti di speculative design, digital products ed editorial design."
+    />
+    <link rel="canonical" href="https://soniacattaneo.it/" />
+    <meta property="og:title" content="Sonia Cattaneo — Portfolio" />
+    <meta
+      property="og:description"
+      content="Portfolio di Sonia Cattaneo, communication designer. Progetti di speculative design, digital products ed editorial design."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://soniacattaneo.it/" />
+    <meta
+      property="og:image"
+      content="https://soniacattaneo.it/projects/project1/images/11_Avocartel.jpg"
+    />
+    <meta property="og:site_name" content="Sonia Cattaneo" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sonia Cattaneo — Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Portfolio di Sonia Cattaneo, communication designer. Progetti di speculative design, digital products ed editorial design."
+    />
+    <meta
+      name="twitter:image"
+      content="https://soniacattaneo.it/projects/project1/images/11_Avocartel.jpg"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sonia Cattaneo",
+        "url": "https://soniacattaneo.it/",
+        "jobTitle": "Communication Designer",
+        "description": "Communication designer working between speculative design, digital products, and editorial projects."
+      }
+    </script>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">
-  <!-- Best-effort: if “Funnel Display” isn’t available, it falls back nicely -->
-  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Best-effort: if “Funnel Display” isn’t available, it falls back nicely -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-  
-</head>
+  <body>
+    <!-- Sticky navbar: site title, fixed on top -->
+    <header class="nav" role="banner">
+      <div class="nav__inner">
+        <a class="nav__title" href="index.html">SONIA CATTANEO</a>
+      </div>
+    </header>
 
-<body>
-  <!-- Sticky navbar -->
-  <header class="nav" role="banner">
-    <div class="nav__inner">
-      <a class="nav__title" href="index.html">SONIA CATTANEO</a>
-    </div>
-  </header>
-
-  <section class="hero" aria-label="Home">
-    <div class="wrap">
-      <!-- About -->
-      <section class="about hero-about" aria-label="About">
-        <div class="about__inner">
-          <div class="about__text">
-            THAT’S ME. I’M SONIA CATTANEO, A COMMUNICATION DESIGNER WORKING BETWEEN speculative design, digital products  AND editorial PROJECTS.<br><br>
-            I DESIGN SYSTEMS THAT USE VISUAL LANGUAGE, STORYTELLING AND INTERACTION TO MAKE COMPLEX TOPICS ACCESSIBLE. &#8232;
-            I’M INTERESTED IN DESIGN AS A TOOL FOR AWARENESS &#8232; and EDUCATION.<br><br>
-            I HELP PROJECTS AND IDEAS build a coherent &#8232;and meaningful visual system.
+    <!-- Hero section: intro text + quick links -->
+    <section class="hero" aria-label="Home">
+      <div class="wrap">
+        <!-- About block: main description and contact links -->
+        <section class="about hero-about" aria-label="About">
+          <div class="about__inner">
+            <div class="about__text">
+              THAT’S ME. I’M SONIA CATTANEO, A COMMUNICATION DESIGNER WORKING
+              BETWEEN speculative design, digital products AND editorial
+              PROJECTS.<br /><br />
+              I DESIGN SYSTEMS THAT USE VISUAL LANGUAGE, STORYTELLING AND
+              INTERACTION TO MAKE COMPLEX TOPICS ACCESSIBLE. &#8232; I’M
+              INTERESTED IN DESIGN AS A TOOL FOR AWARENESS &#8232; and
+              EDUCATION.<br /><br />
+              I HELP PROJECTS AND IDEAS build a coherent &#8232;and meaningful
+              visual system.
+            </div>
+            <div class="about__email">
+              <a href="curriculum.pdf">curriculum</a>
+              <a href="mailto:sonia.cattaneo01@gmail.com">mail</a>
+              <a
+                href="https://www.linkedin.com/in/sonia-cattaneo-b0004b361/"
+                target="_blank"
+                >linkedin</a
+              >
+            </div>
           </div>
-          <div class="about__email">
-          <a href="curriculum.pdf">curriculum</a>
-          <a href="mailto:sonia.cattaneo01@gmail.com">mail</a>
-          <a href="https://www.linkedin.com/in/sonia-cattaneo-b0004b361/" target="_blank">linkedin</a>
-        </div>
-        </div>
 
-        <a class="arrow" href="#project-1">
-          <span class="arrow__label">view projects</span>
-          <br>
-          <img src="images/Freccia.svg" alt="">
-        </a>
+          <!-- Scroll hint to jump to the first project -->
+          <a class="arrow" href="#project-1">
+            <span class="arrow__label">view projects</span>
+            <br />
+            <img src="images/Freccia.svg" alt="" />
+          </a>
+        </section>
+      </div>
+    </section>
 
-        
-      </section>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section class="projects" aria-label="Portfolio">
+    <!-- Projects list: each article is one full-screen project -->
+    <section class="projects" aria-label="Portfolio">
       <!-- 001 -->
       <article class="project project--001" id="project-1">
         <div class="project__meta project__meta--left meta">
@@ -66,16 +117,16 @@
 
         <div class="project__media">
           <a href="projects/project1/avocartel.html" class="project__link">
-          <img
-            class="media"
-            src="projects/project1/images/11_Avocartel.jpg"
-            alt="UNDO preview"
-          >
-        </a>
+            <img
+              class="media"
+              src="projects/project1/images/11_Avocartel.jpg"
+              alt="UNDO preview"
+            />
+          </a>
         </div>
         <a class="project__hint" href="#">click for more</a>
         <a class="project__arrow" href="#project-2">
-          <img src="images/Freccia.svg" alt="">
+          <img src="images/Freccia.svg" alt="" />
         </a>
 
         <div class="project__meta project__meta--right meta">
@@ -84,13 +135,9 @@
             <div class="meta__year">2024</div>
           </div>
         </div>
-
-        
       </article>
 
-      
-
-     <!-- 002 -->
+      <!-- 002 -->
       <article class="project project--002" id="project-2">
         <div class="project__meta project__meta--left meta">
           <div class="meta__row">
@@ -100,17 +147,17 @@
         </div>
 
         <div class="project__media">
-         <a href="projects/project2/idgramma.html" class="project__link">
-          <img
-            class="media"
-            src="projects/project2/images/9_IDgramma.jpg"  
-            alt="DUMO preview"
-          >
-        </a>
+          <a href="projects/project2/idgramma.html" class="project__link">
+            <img
+              class="media"
+              src="projects/project2/images/9_IDgramma.jpg"
+              alt="DUMO preview"
+            />
+          </a>
         </div>
         <a class="project__hint" href="#">click for more</a>
         <a class="project__arrow" href="#project-3">
-          <img src="images/Freccia.svg" alt="">
+          <img src="images/Freccia.svg" alt="" />
         </a>
 
         <div class="project__meta project__meta--right meta">
@@ -131,17 +178,17 @@
         </div>
 
         <div class="project__media">
-         <a href="projects/project4/undo.html" class="project__link">
-          <img
-            class="media"
-            src="projects/project4/images/1_Undo.jpg"
-            alt="UNDO preview"
-          >
-        </a>
+          <a href="projects/project4/undo.html" class="project__link">
+            <img
+              class="media"
+              src="projects/project4/images/1_Undo.jpg"
+              alt="UNDO preview"
+            />
+          </a>
         </div>
         <a class="project__hint" href="#">click for more</a>
         <a class="project__arrow" href="#project-4">
-          <img src="images/Freccia.svg" alt="">
+          <img src="images/Freccia.svg" alt="" />
         </a>
 
         <div class="project__meta project__meta--right meta">
@@ -152,8 +199,7 @@
         </div>
       </article>
 
-
-       <!-- 004 -->
+      <!-- 004 -->
       <article class="project project--002" id="project-4">
         <div class="project__meta project__meta--left meta">
           <div class="meta__row">
@@ -164,16 +210,16 @@
 
         <div class="project__media">
           <a href="projects/project3/scraps.html" class="project__link">
-          <img
-            class="media"
-            src="projects/project3/images/2_Scraps.jpg"
-            alt="UNDO preview"
-          >
-        </a>
+            <img
+              class="media"
+              src="projects/project3/images/2_Scraps.jpg"
+              alt="UNDO preview"
+            />
+          </a>
         </div>
         <a class="project__hint" href="#">click for more</a>
         <a class="project__arrow" href="#project-5">
-          <img src="images/Freccia.svg" alt="">
+          <img src="images/Freccia.svg" alt="" />
         </a>
 
         <div class="project__meta project__meta--right meta">
@@ -193,18 +239,18 @@
           </div>
         </div>
 
-         <div class="project__media">
-         <a href="projects/project5/gluo.html" class="project__link">
-          <img
-            class="media"
-            src="projects/project5/images/1_Gluo.jpg"  
-            alt="UNDO preview"
-          >
-        </a>
+        <div class="project__media">
+          <a href="projects/project5/gluo.html" class="project__link">
+            <img
+              class="media"
+              src="projects/project5/images/1_Gluo.jpg"
+              alt="UNDO preview"
+            />
+          </a>
         </div>
         <a class="project__hint" href="#">click for more</a>
         <a class="project__arrow" href="#project-6">
-          <img src="images/Freccia.svg" alt="">
+          <img src="images/Freccia.svg" alt="" />
         </a>
 
         <div class="project__meta project__meta--right meta">
@@ -214,8 +260,6 @@
           </div>
         </div>
       </article>
-
-      
 
       <!-- 006 -->
       <article class="project project--006" id="project-6">
@@ -230,14 +274,14 @@
           <a href="projects/project6/dumo.html" class="project__link">
             <img
               class="media"
-              src="projects/project6/images/homepage_Dumo.png"  
+              src="projects/project6/images/homepage_Dumo.png"
               alt="DUMO preview"
-            >
-        </a>
+            />
+          </a>
         </div>
         <a class="project__hint" href="#">click for more</a>
         <a class="project__arrow" href="projects/project6/dumo.html">
-          <img src="images/Freccia.svg" alt="">
+          <img src="images/Freccia.svg" alt="" />
         </a>
 
         <div class="project__meta project__meta--right meta">
@@ -247,26 +291,58 @@
           </div>
         </div>
       </article>
-  </section>
+    </section>
 
-  <script>
-    const navEntry = performance.getEntriesByType("navigation")[0];
-    const legacyNav = performance.navigation ? performance.navigation.type : 0;
-    const isReload = (navEntry && navEntry.type === "reload") || legacyNav === 1;
+    <script>
+      const navEntry = performance.getEntriesByType("navigation")[0];
+      const legacyNav = performance.navigation
+        ? performance.navigation.type
+        : 0;
+      const isReload =
+        (navEntry && navEntry.type === "reload") || legacyNav === 1;
 
-    if (isReload) {
-      if ("scrollRestoration" in history) {
-        history.scrollRestoration = "manual";
+      if (isReload) {
+        if ("scrollRestoration" in history) {
+          history.scrollRestoration = "manual";
+        }
+        if (window.location.hash) {
+          history.replaceState(
+            null,
+            "",
+            window.location.pathname + window.location.search,
+          );
+        }
+        window.scrollTo(0, 0);
       }
-      if (window.location.hash) {
-        history.replaceState(null, "", window.location.pathname + window.location.search);
-      }
-      window.scrollTo(0, 0);
-    }
-  </script>
+    </script>
 
-  <div class="wrap">
-    <footer>©2026 - All Rights Reserved</footer>
-  </div>
-</body>
+    <!-- Small privacy notice (no cookies used) -->
+    <div class="privacy-note" id="privacy-note" role="note" aria-live="polite">
+      Nessun cookie o tracciamento: questo sito non utilizza strumenti di
+      analytics o profilazione.
+      <div class="privacy-note__actions">
+        <button class="privacy-note__btn" type="button" id="privacy-ok">
+          OK
+        </button>
+      </div>
+    </div>
+    <script>
+      const privacyNote = document.getElementById("privacy-note");
+      const privacyOk = document.getElementById("privacy-ok");
+      if (localStorage.getItem("privacyNoteOk") === "1") {
+        privacyNote.style.display = "none";
+      }
+      privacyOk.addEventListener("click", () => {
+        localStorage.setItem("privacyNoteOk", "1");
+        privacyNote.style.display = "none";
+      });
+    </script>
+
+    <div class="wrap">
+      <footer>
+        <a href="cookie-policy.html">Cookie Policy</a><br />
+        ©2026 - All Rights Reserved
+      </footer>
+    </div>
+  </body>
 </html>
