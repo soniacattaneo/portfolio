@@ -43,6 +43,18 @@
       }
     </script>
 
+    <script>
+      (() => {
+      const isWindows = navigator.userAgent.includes("Windows");
+      const dpr = window.devicePixelRatio || 1;
+      const isLikely125 = Math.abs(dpr - 1.25) < 0.06;
+
+      if (isWindows && isLikely125) {
+        document.documentElement.classList.add("win125");
+      }
+      })();
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
