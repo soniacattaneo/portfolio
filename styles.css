@@ -36,6 +36,14 @@ html {
   text-size-adjust: 100%;
 }
 
+/* Prefer clip to avoid 1px overflow from subpixel rounding on Windows DPI */
+@supports (overflow: clip) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -57,6 +65,12 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--ff-body);
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Small privacy notice */
@@ -253,9 +267,10 @@ body {
 /* ===== PROJECT LIST ===== */
 .projects {
   /* full-bleed, no extra whitespace between projects */
-  width: 100%;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -386,6 +401,7 @@ body {
 /* Make sure side labels stay vertically centered like in the reference */
 .project__meta {
   align-self: center;
+  min-width: 0;
 }
 
 /* Media */
@@ -397,6 +413,7 @@ body {
   border-radius: var(--media-radius);
   overflow: hidden;
   position: relative;
+  min-width: 0;
 }
 .project__hint {
   display: none;
@@ -531,4 +548,18 @@ footer a {
 }
 footer a:hover {
   text-decoration: underline;
+}
+
+/* Windows DPI 125% fallback (only if JS adds .win-dpi-125) */
+@supports (zoom: 1) {
+  html.win-dpi-125 body {
+    zoom: 0.8; /* Chromium/Edge; aligns layout without affecting DOM sizes */
+  }
+}
+@supports not (zoom: 1) {
+  html.win-dpi-125 body {
+    transform: scale(0.8);
+    transform-origin: top left;
+    width: 125%;
+  }
 }
