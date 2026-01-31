@@ -532,33 +532,33 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
-/* === Stabilizzazione DPI + layering corretto === */
+/* === DPI-safe layout for projects === */
 
-.project {
+.projects {
+  width: 100vw;
   position: relative;
-  isolation: isolate;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
 }
 
-.project__media {
-  position: relative;
-  z-index: 1;
+@media (min-width: 900px) {
+  .project {
+    grid-template-columns:
+      clamp(160px, 18vw, 260px)
+      minmax(0, 1110px)
+      clamp(180px, 18vw, 280px);
+  }
 
-  /* il wrapper ora controlla le dimensioni */
-  width: min(1110px, 100%);
-  aspect-ratio: var(--media-aspect);
+  .project__meta {
+    max-width: 280px;
+  }
 }
 
-.project__meta,
-.project__hint,
-.project__arrow {
-  position: relative;
-  z-index: 2;
-}
+.meta__row { min-width: 0; }
 
-/* l’immagine riempie il box già dimensionato */
-.project__media .media {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: auto; /* evita doppio calcolo */
-  object-fit: cover;
+.meta__name,
+.meta__cat {
+  min-width: 0;
+  overflow-wrap: break-word;
 }
