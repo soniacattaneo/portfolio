@@ -125,9 +125,9 @@
           </a>
         </div>
         <a class="project__hint" href="#">click for more</a>
-        <a class="project__arrow" href="#project-2">
+        <!--<a class="project__arrow" href="#project-2">
           <img src="images/Freccia.svg" alt="" />
-        </a>
+        </a>-->
 
         <div class="project__meta project__meta--right meta">
           <div class="meta__row">
@@ -156,9 +156,9 @@
           </a>
         </div>
         <a class="project__hint" href="#">click for more</a>
-        <a class="project__arrow" href="#project-3">
+        <!--<a class="project__arrow" href="#project-3">
           <img src="images/Freccia.svg" alt="" />
-        </a>
+        </a>-->
 
         <div class="project__meta project__meta--right meta">
           <div class="meta__row">
@@ -187,9 +187,9 @@
           </a>
         </div>
         <a class="project__hint" href="#">click for more</a>
-        <a class="project__arrow" href="#project-4">
+        <!--<a class="project__arrow" href="#project-4">
           <img src="images/Freccia.svg" alt="" />
-        </a>
+        </a>-->
 
         <div class="project__meta project__meta--right meta">
           <div class="meta__row">
@@ -218,9 +218,9 @@
           </a>
         </div>
         <a class="project__hint" href="#">click for more</a>
-        <a class="project__arrow" href="#project-5">
+        <!--<a class="project__arrow" href="#project-5">
           <img src="images/Freccia.svg" alt="" />
-        </a>
+        </a>-->
 
         <div class="project__meta project__meta--right meta">
           <div class="meta__row">
@@ -249,9 +249,9 @@
           </a>
         </div>
         <a class="project__hint" href="#">click for more</a>
-        <a class="project__arrow" href="#project-6">
+        <!--<a class="project__arrow" href="#project-6">
           <img src="images/Freccia.svg" alt="" />
-        </a>
+        </a>-->
 
         <div class="project__meta project__meta--right meta">
           <div class="meta__row">
@@ -280,9 +280,9 @@
           </a>
         </div>
         <a class="project__hint" href="#">click for more</a>
-        <a class="project__arrow" href="projects/project6/dumo.html">
+        <!--<a class="project__arrow" href="projects/project6/dumo.html">
           <img src="images/Freccia.svg" alt="" />
-        </a>
+        </a>-->
 
         <div class="project__meta project__meta--right meta">
           <div class="meta__row">
@@ -314,6 +314,24 @@
         }
         window.scrollTo(0, 0);
       }
+    </script>
+    <script>
+      const prefersReduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      document.querySelectorAll('a.arrow[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const targetId = link.getAttribute("href");
+          const target = targetId ? document.querySelector(targetId) : null;
+          if (!target) return;
+          event.preventDefault();
+          target.scrollIntoView({
+            behavior: prefersReduced ? "auto" : "smooth",
+            block: "start",
+          });
+          history.replaceState(null, "", targetId);
+        });
+      });
     </script>
 
     <!-- Small privacy notice (no cookies used) -->

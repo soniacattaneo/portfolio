@@ -36,6 +36,12 @@ html {
   text-size-adjust: 100%;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 @media (max-width: 899px) {
   html {
     scroll-snap-type: y mandatory;
