@@ -22,11 +22,6 @@
       text-size-adjust: 100%;
     }
 
-    /* Prefer clip to avoid 1px overflow from subpixel rounding on Windows DPI */
-    @supports (overflow: clip){
-      html,body{overflow-x:clip;}
-    }
-
     /* Small privacy notice */
     .privacy-note{
       position: fixed;
@@ -84,10 +79,10 @@
     }
 
     .bleed{
-      width:100vw;
-      max-width:100vw;
-      margin-left:50%;
-      transform:translateX(-50%);
+      width:100%;
+      margin-left:calc(50% - 50vw);
+      margin-right:calc(50% - 50vw);
+      transform:none;
     }
     .frame{padding:var(--gap);background:#000;}
     .grid-frame{
@@ -520,20 +515,6 @@
 
       header.hero{margin-bottom: var(--section-pad-m);} 
       section + section{margin-top: var(--section-pad-m); } 
-    }
-
-    /* Windows DPI 125% fallback (only if JS adds .win-dpi-125) */
-    @supports (zoom: 1){
-      html.win-dpi-125 body{
-        zoom: 0.8; /* Chromium/Edge; aligns layout without affecting DOM sizes */
-      }
-    }
-    @supports not (zoom: 1){
-      html.win-dpi-125 body{
-        transform: scale(0.8);
-        transform-origin: top left;
-        width: 125%;
-      }
     }
 
 
