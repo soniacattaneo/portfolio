@@ -50,6 +50,13 @@
   <!-- Best-effort: if “Funnel Display” isn’t available, it falls back nicely -->
   <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script defer>
+    (() => {
+      const ua = navigator.userAgent || "";
+      if (!ua.includes("Windows")) return;
+      document.documentElement.style.zoom = "0.8";
+    })();
+  </script>
 
   
 </head>
