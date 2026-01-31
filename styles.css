@@ -530,6 +530,16 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
+/* Cookie policy overrides (copy of current about__text values for easy tweaks) */
+body.cookie-policy .about__text {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(12px, 1.1vw, 20px);
+  line-height: 1.15;
+  text-transform: uppercase;
+  max-width: 62ch;
+}
 /* === DPI-safe layout for projects === 
 
 .projects {
