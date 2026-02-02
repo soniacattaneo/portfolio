@@ -190,13 +190,15 @@ body {
   gap: 8px;
   z-index: 3;
 }
+
+
 .arrow__label {
-  font-family: var(--ff-display);
-  font-weight: 300;
-  font-size: clamp(12px, 1.1vw, 16px);
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-}
+    color:var(--muted);
+      font-size:var(--t20);
+      text-transform:uppercase;
+      line-height:var(--lh23);
+    }
+
 
 @media (max-height: 700px) {
   .hero .hero-about {
