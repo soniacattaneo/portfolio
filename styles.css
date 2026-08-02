@@ -474,8 +474,14 @@ body.has-footer-bar::after {
   background: var(--placeholder);
   transition: filter 400ms ease, transform 180ms ease;
 }
-.project__media:hover .media {
-  filter: blur(2px);
+/* Blur di default, nitido al passaggio del mouse (solo desktop/dispositivi con hover) */
+@media (hover: hover) and (pointer: fine) and (min-width: 900px) {
+  .media {
+    filter: blur(2px);
+  }
+  .project__media:hover .media {
+    filter: blur(0);
+  }
 }
 
 @media (max-width: 899px) {
