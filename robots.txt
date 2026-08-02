@@ -1,4 +1,65 @@
+# robots.txt — soniacattaneo.it
+# Sito statico, nessuna area privata: tutto il contenuto è indicizzabile.
+
 User-agent: *
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Crawler AI — accesso consentito in modo esplicito.
+#
+# Alcuni di questi token (Google-Extended, Applebot-Extended) funzionano solo
+# come opt-OUT: se non compaiono qui l'accesso è comunque permesso. Sono
+# elencati lo stesso perché rendono l'intenzione leggibile e impediscono che
+# una regola generica aggiunta in futuro li escluda per sbaglio.
+#
+# Google-Extended è quello che conta per Gemini: se finisse in Disallow,
+# Google smetterebbe di usare il sito per il grounding delle risposte di
+# Gemini. Non ha invece alcun effetto sul posizionamento in Google Search.
+# ---------------------------------------------------------------------------
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: DuckAssistBot
 Allow: /
 
 Sitemap: https://soniacattaneo.it/sitemap.xml

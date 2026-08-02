@@ -1,36 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
   <url>
     <loc>https://soniacattaneo.it/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <priority>1.0</priority>
   </url>
+
   <url>
     <loc>https://soniacattaneo.it/info.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://soniacattaneo.it/cookie-policy.html</loc>
-  </url>
+
   <url>
     <loc>https://soniacattaneo.it/projects/project1/avocartel.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://soniacattaneo.it/projects/project1/images/11_Avocartel.jpg</image:loc>
+      <image:title>Avocartel — speculative design</image:title>
+    </image:image>
   </url>
-  <url>
-    <loc>https://soniacattaneo.it/projects/project2/idgramma.html</loc>
-  </url>
-  <url>
-    <loc>https://soniacattaneo.it/projects/project3/scraps.html</loc>
-  </url>
-  <url>
-    <loc>https://soniacattaneo.it/projects/project4/undo.html</loc>
-  </url>
-  <url>
-    <loc>https://soniacattaneo.it/projects/project5/gluo.html</loc>
-  </url>
-  <url>
-    <loc>https://soniacattaneo.it/projects/project6/dumo.html</loc>
-  </url>
+
   <url>
     <loc>https://soniacattaneo.it/projects/project7/elty.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://soniacattaneo.it/projects/project7/images/1_Elty.jpg</image:loc>
+      <image:title>Elty — brand and communication design</image:title>
+    </image:image>
   </url>
+
+  <url>
+    <loc>https://soniacattaneo.it/projects/project2/idgramma.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://soniacattaneo.it/projects/project2/images/9_IDgramma.jpg</image:loc>
+      <image:title>IDgramma — digital art experimentation</image:title>
+    </image:image>
+  </url>
+
   <url>
     <loc>https://soniacattaneo.it/projects/project8/aws.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://soniacattaneo.it/projects/project8/images/1_memes.jpg</image:loc>
+      <image:title>Anatomy of Anti-Work Memes — information design</image:title>
+    </image:image>
   </url>
+
+  <url>
+    <loc>https://soniacattaneo.it/projects/project4/undo.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://soniacattaneo.it/projects/project4/images/1_Undo.jpg</image:loc>
+      <image:title>UNDO — typographic design</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://soniacattaneo.it/projects/project3/scraps.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://soniacattaneo.it/projects/project3/images/2_Scraps.jpg</image:loc>
+      <image:title>SCRAPS — editorial design</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://soniacattaneo.it/projects/project5/gluo.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://soniacattaneo.it/projects/project5/images/1_Gluo.jpg</image:loc>
+      <image:title>GLUO — UX/UI design</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://soniacattaneo.it/projects/project6/dumo.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://soniacattaneo.it/projects/project6/images/homepage_Dumo.png</image:loc>
+      <image:title>DUMO — interaction design</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://soniacattaneo.it/cookie-policy.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <priority>0.1</priority>
+  </url>
+
 </urlset>

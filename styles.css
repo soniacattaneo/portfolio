@@ -610,6 +610,36 @@ footer a:hover {
   }
 }
 
+/* ===== INFO PAGE =====
+   Il contenuto è più lungo della home: testo leggermente più piccolo e
+   spaziature più compatte, così il footer non finisce sotto la barra
+   fissa in basso (works / info). */
+body.info-page .about__text,
+body.info-page .about__email {
+  /* scala anche sull'altezza: su schermi bassi il testo si riduce da solo */
+  font-size: clamp(11px, min(1vw, 1.6vh), 16px);
+}
+body.info-page footer {
+  font-size: clamp(11px, min(1.15vw, 1.9vh), 18px);
+}
+body.info-page .hero .hero-about {
+  padding-top: clamp(44px, 7vh, 120px);
+}
+body.info-page .hero .hero-about .about__inner {
+  gap: clamp(8px, 1.3vh, 20px);
+}
+/* Su mobile il testo è già al minimo: recupero spazio da interlinea e
+   padding, così anche con le toolbar del browser visibili il footer resta
+   sopra la barra fissa. */
+@media (max-width: 899px) {
+  body.info-page .about__text {
+    line-height: 1.1;
+  }
+  body.info-page .hero .hero-about {
+    padding-top: clamp(36px, 5vh, 80px);
+  }
+}
+
 /* Cookie policy overrides (copy of current about__text values for easy tweaks) */
 body.cookie-policy .about__text {
   font-family: var(--ff-display);
@@ -680,4 +710,32 @@ html.win125 .meta__name,
 html.win125 .meta__cat {
   min-width: 0;
   overflow-wrap: break-word;
+}
+
+/* ===== ACCESSIBILITÀ / SEO =====
+   Heading presenti nel markup per crawler e screen reader ma fuori dal
+   layout visivo (position:absolute li esclude anche dal grid flow). */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+/* L'h1 avvolge il titolo del sito senza alterarne la resa */
+.nav__h1 {
+  margin: 0;
+  font: inherit;
+  min-width: 0;
+}
+/* Titolo visibile della cookie policy, allineato al resto del testo */
+.cookie-h1 {
+  font: inherit;
+  margin: 0 0 2em;
+  text-transform: uppercase;
 }
